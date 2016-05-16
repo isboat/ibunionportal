@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B7E2E58-6128-4A14-B31E-24142CF0930A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Portal.Web.Logics</RootNamespace>
+    <AssemblyName>Portal.Web.Logics</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountingLogic.cs" />
+    <Compile Include="AccountLogic.cs" />
+    <Compile Include="AdminLogic.cs" />
+    <Compile Include="AuthenticationLogic.cs" />
+    <Compile Include="AuthenticationModels\CustomPrincipal.cs" />
+    <Compile Include="AuthenticationModels\CustomPrincipalSerializeModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Portal.Caching\Portal.Caching.csproj">
+      <Project>{F754CE7A-68F2-4C9E-8BE8-C0DA2B85871F}</Project>
+      <Name>Portal.Caching</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Portal.DataAccess\Portal.DataAccess.csproj">
+      <Project>{467E11F2-92A7-4A29-AD70-36E24868A1D3}</Project>
+      <Name>Portal.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Portal.DataObjects\Portal.DataObjects.csproj">
+      <Project>{51B8B4C8-627C-4E9C-B6BF-FC2C2438C247}</Project>
+      <Name>Portal.DataObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.Web.Enums\Portal.Web.Enums.csproj">
+      <Project>{5EF6322A-18A4-498B-A08D-72DC3075F540}</Project>
+      <Name>Portal.Web.Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.Web.Interfaces\Portal.Web.Interfaces.csproj">
+      <Project>{31669643-5985-439D-AB3D-BEE56AAE53EC}</Project>
+      <Name>Portal.Web.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.Web.ViewModels\Portal.Web.ViewModels.csproj">
+      <Project>{10BC8600-97F1-4F21-B393-144C142D9807}</Project>
+      <Name>Portal.Web.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

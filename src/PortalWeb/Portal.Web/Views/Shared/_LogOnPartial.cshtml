@@ -1,0 +1,60 @@
+﻿@using Portal.Web.Models
+@if (Request.IsAuthenticated)
+{
+    if (User.UserLoginRole > 1)
+    {
+        <li>@Html.ActionLink("Admin Panel", "Index", "Admin")</li>
+        <li>@Html.ActionLink("Log Off", "LogOff", "Auth")</li>
+    }
+    else
+    {
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">My Account<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("My Profile", "ViewMyProfile", "Account", new {memberId = User.Id}, null)</li>
+                <li>@Html.ActionLink("Change Password", "ChangePassword", "Auth")</li>
+                <li>@Html.ActionLink("View Membership type", "ViewMembershipType", "Account")</li>
+            </ul>
+        </li>
+
+        <li>@Html.ActionLink("Request Loan", "RequestLoan", "Account")</li>
+    
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">Report<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Dues statement", "ViewMemberDues", "Account")</li>
+                <li>@Html.ActionLink("Outstanding dues", "ViewMemberOutstanding", "Account")</li>
+                @if (User.CanInvest)
+                {
+                    <li>@Html.ActionLink("Investment statement", "ViewMemberInvestments", "Account")</li>
+                }
+                @if (User.CanDoChildBenefit)
+                {
+                    <li>@Html.ActionLink("Child support statement", "ViewMemberSupport", "Account")</li>
+                }
+
+            </ul>
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">Benefits<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Child Birth", "BenefitRequest", "Account")</li>
+                <li>@Html.ActionLink("Funeral Assistance", "BenefitRequest", "Account")</li>
+                <li>@Html.ActionLink("Maternity Allowance", "BenefitRequest", "Account")</li>
+                <li>@Html.ActionLink("Family Support", "BenefitRequest", "Account")</li>
+                <li>@Html.ActionLink("Disaster Relief Support", "BenefitRequest", "Account")</li>
+                <li>@Html.ActionLink("Bereavement Allowance", "BenefitRequest", "Account")</li>
+                <li>@Html.ActionLink("Medical Assistance", "BenefitRequest", "Account")</li>
+            </ul>
+        </li>
+    
+        <li class="divider"></li>
+        <li>@Html.ActionLink("Log Off", "LogOff", "Auth")</li>
+    }
+}
+else
+{
+    <li>@Html.ActionLink("Log in", "Login", "Auth")</li>
+    <li>@Html.ActionLink("Register", "Register", "Account")</li>
+}

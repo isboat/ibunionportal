@@ -1,0 +1,42 @@
+﻿<br /><br />
+<div class="alert alert-success">
+    <strong>As an administrator,</strong> you can make changes to client's profile by using the following buttons
+</div>
+
+<div class="panel panel-info">
+    <div class="panel-heading">Membership Actions </div>
+    <div class="panel-body">
+        @Html.ActionLink("View all users", "List", "Admin", null, new { @class = "btn btn-primary" })
+
+        @Html.ActionLink("View pending loan requests", "ViewLoanRequests", "Admin", null, new { @class = "btn btn-danger" })
+
+        @Html.ActionLink("View pending benefit requests", "ViewBenefitRequests", "Admin", null, new { @class = "btn btn-warning" })
+
+        @Html.ActionLink("View pending investment requests", "ViewInvestmentRequests", "Admin", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+@if (User.UserLoginRole > 2)
+{
+
+<div class="panel panel-success">
+    <div class="panel-heading">Accounting Section </div>
+    <div class="panel-body">
+
+        @Html.ActionLink("Total Monthly Dues", "TotalMonthlyDues", "Accounting", null, new { @class = "btn btn-success" })
+
+        @Html.ActionLink("Total Investments Analysis", "InvestmentView", "Accounting", null, new { @class = "btn btn-primary" })
+
+        @Html.ActionLink("Total Loans Requests & Granted", "ViewBenefitRequests", "Admin", null, new { @class = "btn btn-danger", disabled = "disabled" })
+    </div>
+</div>
+
+}
+    
+<div class="panel panel-warning">
+    <div class="panel-heading">Admin Settings</div>
+    <div class="panel-body">
+        @Html.ActionLink("View Administrators", "ViewAdmins", "Admin", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Create Administrator", "CreateAdmin", "Admin", null, new { @class = "btn btn-warning" })
+    </div>
+</div>

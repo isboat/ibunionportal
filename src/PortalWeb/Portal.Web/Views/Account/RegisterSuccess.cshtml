@@ -1,0 +1,36 @@
+﻿@using Portal.Web.Models
+@model Portal.Web.Models.BaseResponse
+<br/>
+<div class="container">
+@{
+    if (Model.Status == BaseResponseStatus.Success)
+    {
+        if (this.Request.IsAuthenticated && !(this.User.UserLoginRole < 2))
+        {
+            <div class="alert alert-success">
+                <p>
+                    <strong>Success!!!</strong> The registration is now pending approval.
+                </p>
+            </div>
+        }
+        else
+        {
+        <div class="alert alert-success">
+            <p>
+                <strong>Congratulations!!!</strong> Your registration is now pending approval. Contact member service on 0555873145
+            </p>
+            <div>Once approved, you can @Html.ActionLink("log in.", "Login", "Auth") with your registered credentials</div>
+        </div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-danger">
+            <p>
+                <strong>Error occurred!</strong> Your registration was unsuccessful.
+            </p>
+            <div>Please @Html.ActionLink("try again.", "Register", "Account")</div>
+        </div>
+    }
+}
+</div>

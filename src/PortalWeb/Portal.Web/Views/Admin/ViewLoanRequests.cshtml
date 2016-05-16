@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Portal.Web.ViewModels.Account.LoanRequest>
+@if (!Model.Any())
+{
+    <br />
+    <div class="alert alert-warning">
+        No loans request available yet.
+    </div>
+}
+else {
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    
+    @Html.HiddenFor(modelItem => item.MemberId)
+    @Html.HiddenFor(modelItem => item.PendingLoanId)
+    <tr>
+        <td>
+            &#x20b5; @Html.DisplayFor(modelItem => item.Amount) ghc
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditLoan", new { loanid = item.PendingLoanId })
+        </td>
+    </tr>
+}
+
+</table>
+}

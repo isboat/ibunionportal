@@ -1,0 +1,73 @@
+﻿@model Portal.Web.ViewModels.MemberInvmt.ViewMemberInvestment
+
+<br/>
+<h3 class="printOnly">Print investment statement</h3>
+<div>
+    <div>Welfare Association</div>
+    <div>Member id: @Model.MemberId</div>
+    <div>Member name: @Model.MemberName</div>
+    <div>Membership type: @Model.MembershipType</div> 
+    @if (!string.IsNullOrEmpty(Model.Address))
+    {
+        <div>Member Location: @Model.Address</div>
+    }
+</div>
+<br />
+
+<table class="table">
+        <tr>
+            <th>
+                Amount
+            </th>
+            <th>
+                Month
+            </th>
+            <th>
+                Year
+            </th>
+            <th>
+                Added Date
+            </th>
+            <th>
+                Added By
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Investments)
+        {
+            <tr class="@if (!item.Paid) { <text>alert-danger</text> }">
+                <td>
+                    &#x20b5; @Html.DisplayFor(modelItem => item.Amount)  ghc
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DuesMonth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DuesYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddedBy)
+                </td>
+                <td>
+                    @if (!item.Paid)
+                    {
+                        <span class="alert-danger">Unpaid</span>
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Edit", "EditMemberInvmt", new { invmtid = item.InvmtId })
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+
+<h4>Total investment made = <span>&#x20b5; @Model.TotalInvested ghc</span></h4>
+<br/>
+<input type="submit" id="printBtn" value="Print" class="btn btn-warning" />
+
