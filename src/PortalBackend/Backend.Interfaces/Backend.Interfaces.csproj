@@ -7,8 +7,8 @@
     <ProjectGuid>{31669643-5985-439D-AB3D-BEE56AAE53EC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Portal.Web.Interfaces</RootNamespace>
-    <AssemblyName>Portal.Web.Interfaces</AssemblyName>
+    <RootNamespace>Backend.Interfaces</RootNamespace>
+    <AssemblyName>Backend.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,18 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAccounting.cs" />
-    <Compile Include="IAdminLogic.cs" />
     <Compile Include="ICustomPrincipal.cs" />
     <Compile Include="IDemoLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IAccount.cs" />
     <Compile Include="IAuthentication.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Portal.Web.ViewModels\Portal.Web.ViewModels.csproj">
+    <ProjectReference Include="..\Backend.ViewModels\Backend.ViewModels.csproj">
       <Project>{10BC8600-97F1-4F21-B393-144C142D9807}</Project>
-      <Name>Portal.Web.ViewModels</Name>
+      <Name>Backend.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

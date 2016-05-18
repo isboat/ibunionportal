@@ -7,8 +7,8 @@
     <ProjectGuid>{8B7E2E58-6128-4A14-B31E-24142CF0930A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Portal.Web.Logics</RootNamespace>
-    <AssemblyName>Portal.Web.Logics</AssemblyName>
+    <RootNamespace>Backend.Logics</RootNamespace>
+    <AssemblyName>Backend.Logics</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,9 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountingLogic.cs" />
-    <Compile Include="AccountLogic.cs" />
-    <Compile Include="AdminLogic.cs" />
     <Compile Include="AuthenticationLogic.cs" />
     <Compile Include="AuthenticationModels\CustomPrincipal.cs" />
     <Compile Include="AuthenticationModels\CustomPrincipalSerializeModel.cs" />
@@ -64,17 +61,13 @@
       <Project>{51B8B4C8-627C-4E9C-B6BF-FC2C2438C247}</Project>
       <Name>Portal.DataObjects</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Portal.Web.Enums\Portal.Web.Enums.csproj">
-      <Project>{5EF6322A-18A4-498B-A08D-72DC3075F540}</Project>
-      <Name>Portal.Web.Enums</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Portal.Web.Interfaces\Portal.Web.Interfaces.csproj">
+    <ProjectReference Include="..\Backend.Interfaces\Backend.Interfaces.csproj">
       <Project>{31669643-5985-439D-AB3D-BEE56AAE53EC}</Project>
-      <Name>Portal.Web.Interfaces</Name>
+      <Name>Backend.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Portal.Web.ViewModels\Portal.Web.ViewModels.csproj">
-      <Project>{10BC8600-97F1-4F21-B393-144C142D9807}</Project>
-      <Name>Portal.Web.ViewModels</Name>
+    <ProjectReference Include="..\Backend.ViewModels\Backend.ViewModels.csproj">
+      <Project>{10bc8600-97f1-4f21-b393-144c142d9807}</Project>
+      <Name>Backend.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

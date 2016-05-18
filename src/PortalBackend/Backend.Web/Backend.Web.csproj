@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Portal.Web</RootNamespace>
-    <AssemblyName>Portal.Web</AssemblyName>
+    <RootNamespace>Backend.Web</RootNamespace>
+    <AssemblyName>Backend.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -97,9 +97,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AccountingController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -181,47 +178,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\RegisterSuccess.cshtml" />
-    <Content Include="Views\Account\ViewMyProfile.cshtml" />
-    <Content Include="Views\Account\EditMyProfile.cshtml" />
-    <Content Include="Views\Auth\ChangePassword.cshtml" />
-    <Content Include="Views\Auth\ChangePasswordResponse.cshtml" />
     <Content Include="Views\Shared\LoginPrompt.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\List.cshtml" />
-    <Content Include="Views\Admin\UserDetails.cshtml" />
-    <Content Include="Views\Account\UploadPhoto.cshtml" />
-    <Content Include="Views\Admin\AddMemberDues.cshtml" />
-    <Content Include="Views\Admin\ViewMemberDues.cshtml" />
-    <Content Include="Views\Account\ViewMemberDues.cshtml" />
-    <Content Include="Views\Admin\EditMemberDues.cshtml" />
-    <Content Include="Views\Account\ViewMembershipType.cshtml" />
-    <Content Include="Views\Account\RequestLoan.cshtml" />
-    <Content Include="Views\Admin\ViewLoanRequests.cshtml" />
-    <Content Include="Views\Account\BenefitRequest.cshtml" />
-    <Content Include="Views\Admin\ViewBenefitRequests.cshtml" />
-    <Content Include="Views\Admin\EditBenefit.cshtml" />
-    <Content Include="Views\Account\ViewMemberOutstanding.cshtml" />
-    <Content Include="Views\Admin\EditLoan.cshtml" />
-    <Content Include="Views\Account\ViewMemberInvestments.cshtml" />
-    <Content Include="Views\Admin\AddMemberInvmt.cshtml" />
-    <Content Include="Views\Admin\ViewMemberInvmt.cshtml" />
-    <Content Include="Views\Admin\EditMemberInvmt.cshtml" />
-    <Content Include="Views\Account\WithdrawInvestment.cshtml" />
-    <Content Include="Views\Admin\ViewInvestmentRequests.cshtml" />
-    <Content Include="Views\Admin\EditInvestmentRequest.cshtml" />
-    <Content Include="Views\Admin\CreateAdmin.cshtml" />
-    <Content Include="Views\Auth\AdminLogin.cshtml" />
-    <Content Include="Views\Admin\ViewAdmins.cshtml" />
-    <Content Include="Views\Admin\EditAdmin.cshtml" />
-    <Content Include="Views\Accounting\TotalMonthlyDues.cshtml" />
-    <Content Include="Views\Accounting\InvestmentView.cshtml" />
-    <Content Include="Views\Admin\ViewMemberSupport.cshtml" />
-    <Content Include="Views\Admin\EditMemberSupport.cshtml" />
-    <Content Include="Views\Admin\AddMemberSupport.cshtml" />
-    <Content Include="Views\Account\ViewMemberSupport.cshtml" />
     <None Include="Views\Base\AboutUs.cshtml" />
     <None Include="Views\Base\ContactUs.cshtml" />
     <None Include="Views\Base\CookiePolicy.cshtml" />
@@ -241,21 +199,17 @@
       <Project>{BC4D0AEE-6FFB-43F3-8DB3-B5AE737A0AA2}</Project>
       <Name>Portal.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Portal.Web.Enums\Portal.Web.Enums.csproj">
-      <Project>{5EF6322A-18A4-498B-A08D-72DC3075F540}</Project>
-      <Name>Portal.Web.Enums</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Portal.Web.Logics\Portal.Web.Logics.csproj">
+    <ProjectReference Include="..\Backend.Logics\Backend.Logics.csproj">
       <Project>{8B7E2E58-6128-4A14-B31E-24142CF0930A}</Project>
-      <Name>Portal.Web.Logics</Name>
+      <Name>Backend.Logics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Portal.Web.ViewModels\Portal.Web.ViewModels.csproj">
+    <ProjectReference Include="..\Backend.ViewModels\Backend.ViewModels.csproj">
       <Project>{10BC8600-97F1-4F21-B393-144C142D9807}</Project>
-      <Name>Portal.Web.ViewModels</Name>
+      <Name>Backend.ViewModels</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Portal.Web.Interfaces\Portal.Web.Interfaces.csproj">
+    <ProjectReference Include="..\Backend.Interfaces\Backend.Interfaces.csproj">
       <Project>{31669643-5985-439D-AB3D-BEE56AAE53EC}</Project>
-      <Name>Portal.Web.Interfaces</Name>
+      <Name>Backend.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
