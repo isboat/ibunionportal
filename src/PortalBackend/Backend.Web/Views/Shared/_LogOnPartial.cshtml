@@ -1,5 +1,4 @@
-﻿@using Portal.Web.Models
-@if (Request.IsAuthenticated)
+﻿@if (Request.IsAuthenticated)
 {
     if (User.UserLoginRole > 1)
     {
@@ -8,17 +7,6 @@
     }
     else
     {
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">My Account<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li>@Html.ActionLink("My Profile", "ViewMyProfile", "Account", new {memberId = User.Id}, null)</li>
-                <li>@Html.ActionLink("Change Password", "ChangePassword", "Auth")</li>
-                <li>@Html.ActionLink("View Membership type", "ViewMembershipType", "Account")</li>
-            </ul>
-        </li>
-
-        <li>@Html.ActionLink("Request Loan", "RequestLoan", "Account")</li>
-    
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">Report<span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -52,9 +40,4 @@
         <li class="divider"></li>
         <li>@Html.ActionLink("Log Off", "LogOff", "Auth")</li>
     }
-}
-else
-{
-    <li>@Html.ActionLink("Log in", "Login", "Auth")</li>
-    <li>@Html.ActionLink("Register", "Register", "Account")</li>
 }

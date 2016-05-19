@@ -1,5 +1,4 @@
-﻿@using Portal.Web.Models
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -21,15 +20,6 @@
     <script src="~/Scripts/jquery.bxslider.min.js"></script>
     <link href="~/Content/jquery.bxslider.css" rel="stylesheet" />
 
-    <script type="text/javascript">
-        wams = {
-            config: {
-                totalMonthlyDuesUrl: '@Url.Action("GetTotalMonthlyDues", "Accounting")',
-                investmentDataUrl: '@Url.Action("GetInvestmentData", "Accounting")'
-            }
-        }
-    </script>
-
     <script src="~/Scripts/wams.ui.js"></script>
     <script src="~/Scripts/wams.charts.js"></script>
     <script src="~/Scripts/wams.accounting.js"></script>
@@ -50,33 +40,24 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand navbar-default" href="/">
-                @*<img src="@Url.Content("~/Images/logo.png")" width="100" height="40" />*@
-                Welfare System
+                IB UNION PORTAL DASHBOARD
             </a>
-            @*@Html.ActionLink("UPACAR", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
                 @Html.Partial("_LogOnPartial")
             </ul>
         </div>
     </div>
 </div>
 <div class="container body-content">
+    
     @RenderBody()
+    
     <hr/>
     <footer>
         <div align="center">
-            @*@Html.ActionLink("About Us", "#", "#") | 
-                @Html.ActionLink("Terms and Conditions", "#", "#") | 
-                @Html.ActionLink("Cookie Policy", "#", "#") | 
-                @Html.ActionLink("Privacy Policy", "#", "#") |
-                @Html.ActionLink("Contact Us", "#", "#") |*@
-            <a href="http://uwwag.org/">Visit uwwag</a>
-        </div>
-        <div align="center">
-            <p>&copy; @DateTime.Now.Year - wams.com Application. All rights reserved</p>
+            <p>&copy; @DateTime.Now.Year - ibunionportal.com Application. All rights reserved</p>
         </div>
     </footer>
 </div>

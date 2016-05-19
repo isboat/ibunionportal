@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssociationLogic.cs" />
     <Compile Include="AuthenticationLogic.cs" />
     <Compile Include="AuthenticationModels\CustomPrincipal.cs" />
     <Compile Include="AuthenticationModels\CustomPrincipalSerializeModel.cs" />
