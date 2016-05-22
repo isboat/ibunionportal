@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Backend.ViewModels.Demo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,7 @@ namespace Backend.ViewModels
     public class SummaryViewModel
     {
         public int AssociationCount { get; set; }
+
+        public List<DemoSummary> DemoRequests { get; set; }
     }
 }

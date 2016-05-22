@@ -1,6 +1,12 @@
-﻿namespace Backend.ViewModels.Demo
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Portal.DataObjects
 {
-    public class DemoRequest : DemoSummary
+    public class Demo
     {
         public string Firstname { get; set; }
         public string Lastname { get; set; }

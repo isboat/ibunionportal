@@ -8,7 +8,7 @@ namespace Portal.DataAccess.Repositories
 
         public BaseRepository()
         {
-            this.ConString = ConfigurationManager.ConnectionStrings["wams"].ConnectionString;
+            this.ConString = ConfigurationManager.ConnectionStrings["portal"].ConnectionString;
         }
     }
 }

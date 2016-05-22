@@ -2,10 +2,6 @@
 
 <div class="row">
     <div class="col-md-2">
-        @*<div class="panel panel-success">
-            <div class="panel-heading">Summary</div>
-            <div class="panel-body"></div>
-        </div>*@
         <div class="list-group">
             <a href="#" class="list-group-item active">Summary</a>
             <a href="#" class="list-group-item">View all associations</a>
@@ -13,6 +9,20 @@
         </div>
     </div>
     <div class="col-md-10 contentArea">
+        @if (Model.DemoRequests.Count > 0)
+        {
+            <div class="panel panel-success">
+                <div class="panel-heading">Latest association applications</div>
+                <div class="panel-body">
+                    <ul>
+                        @foreach(var demo in Model.DemoRequests)
+                        {
+                            <li><a href="#@demo.Id">@demo.AsscName, @demo.Telephone</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
         <div>
             @Model.AssociationCount associations currently registered.
         </div>
