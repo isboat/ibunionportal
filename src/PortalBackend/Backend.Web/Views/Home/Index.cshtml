@@ -1,11 +1,11 @@
-﻿@model Backend.ViewModels.SummaryViewModel
+﻿@*@model Backend.ViewModels.SummaryViewModel
 
 <div class="row">
     <div class="col-md-2">
         <div class="list-group">
             <a href="#" class="list-group-item active">Summary</a>
-            <a href="#" class="list-group-item">View all associations</a>
-            <a href="#" class="list-group-item">Third item</a>
+            <a href="#" class="list-group-item" onclick="backend.core.viewAllAssociations()">View all associations</a>
+            <a href="#" class="list-group-item">View scheduled demo</a>
         </div>
     </div>
     <div class="col-md-10 contentArea">
@@ -27,4 +27,4 @@
             @Model.AssociationCount associations currently registered.
         </div>
     </div>
-</div>
+</div>*@

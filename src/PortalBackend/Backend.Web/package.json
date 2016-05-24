@@ -1,0 +1,38 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "cssfiles": [
+    "Content/bootstrap.css",
+    "Content/Site.css"
+  ],
+  "jsfiles": [
+    "Scripts/jquery/dist/jquery.js",
+    "Scripts/angular/angular.js",
+    "Scripts/angular-ui-router/release/angular-ui-router.js",
+    "Scripts/bootstrap.js",
+    "Scripts/jquery/respond.js",
+    "App/app.module.js",
+    "App/routeHelper.js",
+    "App/Summary/summary.module.js",
+    "App/Summary/summary.js"
+  ]
+}

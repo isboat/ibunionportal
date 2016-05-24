@@ -1,0 +1,24 @@
+{
+  "name": "backendweb",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Isaac Boateng <iboateng@sportingindex.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/isboat/ibunionportal",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "angular": "^1.5.5"
+  },
+  "devDependencies": {
+    "angular-ui-router": "^0.3.0"
+  }
+}
