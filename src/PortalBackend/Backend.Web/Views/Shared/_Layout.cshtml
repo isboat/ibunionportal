@@ -3,10 +3,8 @@
 <head>
     <script type="text/javascript">
         if (window) {
-            window.backend = {
-                config: {
-                    viewAllAssociationsUrl: "fdfdf"
-                }
+            window.appSettings = {
+                getSummaryDataUrl: '@Url.Action("GetSummary", "SummaryApi")'
             };
         }
     </script>

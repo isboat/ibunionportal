@@ -27,4 +27,8 @@ gulp.task("js", function () {
         .pipe(gulp.dest("Scripts"));
 });
 
+gulp.task("watch", function() {
+    gulp.watch(pkg.jsFilesPath, ["js"]);
+});
+
 gulp.task("default", ["css", "js"]);

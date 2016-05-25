@@ -31,8 +31,17 @@
     "Scripts/bootstrap.js",
     "Scripts/jquery/respond.js",
     "App/app.module.js",
+
+    "App/Core/core.module.js",
+    "App/Core/config.js",
+
     "App/routeHelper.js",
+
+    "App/Services/services.module.js",
+    "App/Services/summary.factory.js",
+
     "App/Summary/summary.module.js",
     "App/Summary/summary.js"
-  ]
+  ],
+  "jsFilesPath":  "App/**/*.js"
 }

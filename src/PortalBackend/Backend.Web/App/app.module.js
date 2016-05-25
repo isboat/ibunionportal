@@ -3,7 +3,8 @@
 
     angular.module("app", [
         "ui.router",
-
-        "app.summary"
+        "app.core",
+        "app.summary",
+        "app.services"
     ]);
 })();
