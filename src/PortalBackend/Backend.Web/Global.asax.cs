@@ -16,10 +16,10 @@ namespace Backend.Web
         protected void Application_Start()
         {
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            GlobalConfiguration.Configure(WebApiConfig.Register);
         }
 
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)

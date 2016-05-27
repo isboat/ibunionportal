@@ -1,9 +1,9 @@
 ﻿(function() {
     'use strict';
 
-    angular.module("app").config(['$stateProvider', '$urlRouterProvider', 'summaryService', configureRoutes]);
+    angular.module("app").config(['$stateProvider', '$urlRouterProvider', 'summaryServiceProvider', configureRoutes]);
 
-    function configureRoutes($stateProvider, $urlRouterProvider, summaryService) {
+    function configureRoutes($stateProvider, $urlRouterProvider, summaryServiceProvider) {
         $urlRouterProvider.otherwise('/summary');
 
         $stateProvider
@@ -13,11 +13,12 @@
                 controller: 'summary',
                 controllerAs: 'vm',
                 resolve: {
-                    summaryData: function() {
-                        //return summaryService.getData().then(function (response) {
-                        //    console.log(response);
-                        //    return response.data;
-                        //});
+                    summaryData: function () {
+
+                        return summaryServiceProvider.$get().getData().then(function (response) {
+                            console.log(response);
+                            return response.data;
+                        });
                     }
                 }
             })

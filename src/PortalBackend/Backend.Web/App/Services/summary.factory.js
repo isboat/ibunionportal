@@ -13,11 +13,12 @@
         return service;
 
         function getData() {
+
             var deferred = $q.defer();
 
             $http({
                 method: 'GET',
-                url: config.appSettings.getSummaryDataUrl,
+                url: config.appSettings.summaryDataUrl,
                 cache: false
             }).then(
                 function(response) {
