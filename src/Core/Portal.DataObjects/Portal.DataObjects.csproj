@@ -49,6 +49,7 @@
     <Compile Include="Admin\CreateAdmin.cs" />
     <Compile Include="Admin\EditAdmin.cs" />
     <Compile Include="Admin\AdminUserInfo.cs" />
+    <Compile Include="Association.cs" />
     <Compile Include="Demo.cs" />
     <Compile Include="PendingBase.cs" />
     <Compile Include="PendingBenefitRequest.cs" />

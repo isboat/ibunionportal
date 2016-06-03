@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Portal.DataObjects
 {
-    public class Demo
+    public class Demo : DemoSummary
     {
         public string Firstname { get; set; }
         public string Lastname { get; set; }

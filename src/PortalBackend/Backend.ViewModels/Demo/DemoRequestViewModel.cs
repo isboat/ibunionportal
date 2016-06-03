@@ -1,6 +1,6 @@
 ﻿namespace Backend.ViewModels.Demo
 {
-    public class DemoRequest : DemoSummary
+    public class DemoRequestViewModel : DemoSummaryViewMdoel
     {
         public string Firstname { get; set; }
         public string Lastname { get; set; }
@@ -13,7 +13,7 @@
         public string ScheduleDate { get; set; }
     }
 
-    public class DemoSummary
+    public class DemoSummaryViewMdoel
     {
         public int Id { get; set; }
         public string AsscName { get; set; }

@@ -6,7 +6,11 @@ namespace Backend.Interfaces
 {
     public interface IDemoLogic
     {
-        BaseResponse RequestDemo(DemoRequest request);
-        List<DemoSummary> GetRequestedDemos();
+        BaseResponse RequestDemo(DemoRequestViewModel request);
+
+        List<DemoSummaryViewMdoel> GetRequestedDemos();
+
+        List<DemoRequestViewModel> GetCompletedDemos();
+        List<DemoRequestViewModel> GetScheduledDemos();
     }
 }

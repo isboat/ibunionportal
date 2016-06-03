@@ -11,6 +11,6 @@ namespace Backend.ViewModels
     {
         public int AssociationCount { get; set; }
 
-        public List<DemoSummary> DemoRequests { get; set; }
+        public List<DemoSummaryViewMdoel> DemoRequests { get; set; }
     }
 }

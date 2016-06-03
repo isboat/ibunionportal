@@ -9,6 +9,8 @@ namespace Backend.Interfaces
 {
     public interface IAssociationLogic
     {
-        SummaryViewModel GetSummary();
+        List<AssociationViewModel> GetAllAssociations();
+
+        AssociationViewModel GetAssociation(int id);
     }
 }

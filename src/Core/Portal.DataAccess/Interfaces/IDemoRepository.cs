@@ -10,5 +10,8 @@ namespace Portal.DataAccess.Interfaces
     public interface IDemoRepository
     {
         List<DemoSummary> GetRequestedDemos();
+
+        List<Demo> GetCompletedDemos();
+        List<Demo> GetScheduledDemos();
     }
 }

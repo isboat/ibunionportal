@@ -6,26 +6,47 @@ using System.Threading.Tasks;
 using Backend.Interfaces;
 using Backend.ViewModels;
 using Backend.ViewModels.Demo;
+using Portal.DataAccess.Interfaces;
 
 namespace Backend.Logics
 {
     public class AssociationLogic : IAssociationLogic
     {
-        private readonly IDemoLogic demoLogic;
+        private readonly IAssociationRepository associationRepository;
 
-        public AssociationLogic(IDemoLogic demoLogic)
+        public AssociationLogic(IAssociationRepository associationRepository)
         {
-            this.demoLogic = demoLogic;
+            this.associationRepository = associationRepository;
         }
-        public SummaryViewModel GetSummary()
-        {
-            var summary = new SummaryViewModel 
-            { 
-                AssociationCount = 100,
-                DemoRequests = demoLogic.GetRequestedDemos()
-            };
 
-            return summary;
+        public List<AssociationViewModel> GetAllAssociations()
+        {
+            var associations = associationRepository.GetAllAssociations();
+            
+            var response = new List<AssociationViewModel>();
+
+            if (associations != null)
+            {
+                response.AddRange(associations.Select(association => new AssociationViewModel
+                {
+                    Address = association.Address, Id = association.Id, Name = association.Name
+                }));
+            }
+
+            return new List<AssociationViewModel> {new AssociationViewModel{Name = "Association Name", Address = "Association Address", Telephone = "123456789"}};
+        }
+
+        public AssociationViewModel GetAssociation(int id)
+        {
+            var assoc = associationRepository.GetAssociation(id);
+            return assoc == null
+                ? new AssociationViewModel { Name = "Association Name", Address = "Association Address", Telephone = "123456789" }
+                : new AssociationViewModel
+                {
+                    Address = assoc.Address,
+                    Id = assoc.Id,
+                    Name = assoc.Name
+                };
         }
     }
 }

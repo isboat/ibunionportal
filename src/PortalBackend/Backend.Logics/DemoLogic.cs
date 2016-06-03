@@ -3,6 +3,8 @@ using Backend.ViewModels;
 using Backend.ViewModels.Demo;
 using Portal.DataAccess.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
+using Portal.DataObjects;
 
 namespace Backend.Logics
 {
@@ -15,27 +17,71 @@ namespace Backend.Logics
             this.demoRepository = demoRepository;
         }
 
-        public Backend.ViewModels.BaseResponse RequestDemo(DemoRequest request)
+        public BaseResponse RequestDemo(DemoRequestViewModel request)
         {
             return new BaseResponse {Success = true};
         }
 
-        public List<DemoSummary> GetRequestedDemos()
+        public List<DemoSummaryViewMdoel> GetRequestedDemos()
         {
-            var demos = new List<DemoSummary>();
-
             var reqs = demoRepository.GetRequestedDemos();
-            foreach (var req in reqs)
-            {
-                demos.Add(new DemoSummary
-                {
-                    Id = req.Id,
-                    AsscName = req.AsscName,
-                    Telephone = req.Telephone
-                });
-            }
+            return CreateDemos(reqs);
+        }
 
-            return demos;
+        public List<DemoRequestViewModel> GetCompletedDemos()
+        {
+            var demos = demoRepository.GetCompletedDemos();
+            return new List<DemoRequestViewModel>
+            {
+                new DemoRequestViewModel
+            {
+                Id = 1,
+                AsscAddr = "AsscAddr",
+                AsscCountry = "d.AsscCountry",
+                AsscName = "d.AsscName Completed",
+                Email = "d.Email"
+            }
+            };
+            //return demos.Select(d => new DemoRequestViewModel
+            //{
+            //    Id = d.Id,
+            //    AsscAddr = d.AsscAddr,
+            //    AsscCountry = d.AsscCountry,
+            //    AsscName = d.AsscName,
+            //    Email = d.Email
+            //}).ToList();
+        }
+
+        public List<DemoRequestViewModel> GetScheduledDemos()
+        {
+            var demos = demoRepository.GetScheduledDemos();
+            return new List<DemoRequestViewModel>
+            {
+                new DemoRequestViewModel
+            {
+                Id = 1,
+                AsscAddr = "AsscAddr",
+                AsscCountry = "d.AsscCountry",
+                AsscName = "d.AsscName schedule demo",
+                Email = "d.Email"
+            }
+            };
+            //return demos.Select(d => new DemoRequestViewModel
+            //{
+            //    Id = d.Id,
+            //    AsscAddr = d.AsscAddr,
+            //    AsscCountry = d.AsscCountry,
+            //    AsscName = d.AsscName,
+            //    Email = d.Email
+            //}).ToList();
+        }
+
+        private List<DemoSummaryViewMdoel> CreateDemos(List<DemoSummary> demoSummaries)
+        {
+            return demoSummaries.Select(req => new DemoSummaryViewMdoel
+            {
+                Id = req.Id, AsscName = req.AsscName, Telephone = req.Telephone
+            }).ToList();
         }
     }
 }

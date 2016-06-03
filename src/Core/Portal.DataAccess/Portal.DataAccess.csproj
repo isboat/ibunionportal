@@ -47,11 +47,13 @@
     <Compile Include="Interfaces\IAccountingRepository.cs" />
     <Compile Include="Interfaces\IAccountRepository.cs" />
     <Compile Include="Interfaces\IAdminRepository.cs" />
+    <Compile Include="Interfaces\IAssociationRepository.cs" />
     <Compile Include="Interfaces\IDemoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountingRepository.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
     <Compile Include="Repositories\AdminRepository.cs" />
+    <Compile Include="Repositories\AssociationRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\DataAccessHelper.cs" />
     <Compile Include="Repositories\DemoRepository.cs" />
