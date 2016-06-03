@@ -1,0 +1,80 @@
+﻿<div class="panel panel-success" ng-show="vm.isNew && vm.demoreqs.length">
+    <div class="panel-heading">Pre-fill form with latest association applications</div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="Name">Completed Demos</label>
+                <div class="col-md-10">
+                    <select ng-model="vm.assc" ng-options="demo.name for demo in vm.demoreqs track by demo.id" class="form-control text-box single-line"></select>
+                </div>
+            </div>
+        </div>
+            
+        </div>
+    
+</div>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-md-2" for="Name">Name</label>
+        <div class="col-md-10">
+            <input ng-model="vm.assc.name" class="form-control text-box single-line" id="Name" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="JoinDate">Join date</label>
+        <div class="col-md-10">
+            <input ng-model="vm.assc.joinDate" class="form-control text-box single-line" id="JoinDate" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="Address">Address/Location</label>
+        <div class="col-md-10">
+            <input ng-model="vm.assc.address" class="form-control text-box single-line" id="Address" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="Country">Country</label>
+        <div class="col-md-10">
+            <input ng-model="vm.assc.country" class="form-control text-box single-line" id="Country" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="Email">Association Email</label>
+        <div class="col-md-10">
+            <input ng-model="vm.assc.email" class="form-control text-box single-line" id="Email" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="Telephone">Telephone</label>
+        <div class="col-md-10">
+            <input ng-model="vm.assc.telephone" class="form-control text-box single-line" id="Telephone" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="Password">Set Password</label>
+        <div class="col-md-10">
+            <input ng-model="vm.assc.password" class="form-control" id="Password" type="password">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="ConfirmPassword">Confirm password</label>
+        <div class="col-md-10">
+            <input ng-model="vm.assc.confirmpassword" class="form-control" id="ConfirmPassword" type="password">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-primary">
+        </div>
+    </div>
+
+</div>

@@ -1,1 +1,16 @@
-﻿<div>Some summary content</div>
+﻿<div class="row">
+    <div class="col-md-10 contentArea">
+        <div>
+            {{vm.associationCount}} association(s) currently registered.
+        </div>
+
+        <div class="panel panel-success" ng-if="vm.demoreqs">
+            <div class="panel-heading">Latest association applications</div>
+            <div class="panel-body">
+                <ul>
+                    <li ng-repeat="demo in vm.demoreqs"><a href="{{demo.Id}}">{{demo.AsscName}}, {{demo.Telephone}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

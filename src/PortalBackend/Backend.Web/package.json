@@ -38,10 +38,18 @@
     "App/routeHelper.js",
 
     "App/Services/services.module.js",
-    "App/Services/summary.factory.js",
+    "App/Services/data.factory.js",
 
     "App/Summary/summary.module.js",
-    "App/Summary/summary.js"
+    "App/Summary/summary.js",
+
+    "App/Associations/associations.module.js",
+    "App/Associations/viewall.js",
+    "App/Associations/view.js",
+    "App/Associations/edit.js",
+
+    "App/Demos/demos.module.js",
+    "App/Demos/demos.js"
   ],
   "jsFilesPath":  "App/**/*.js"
 }

@@ -126,11 +126,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\app.module.js" />
+    <Content Include="App\Associations\associations.module.js" />
+    <Content Include="App\Associations\edit.html" />
+    <Content Include="App\Associations\edit.js" />
+    <Content Include="App\Associations\view.html" />
+    <Content Include="App\Associations\view.js" />
+    <Content Include="App\Associations\viewall.html" />
+    <Content Include="App\Associations\viewall.js" />
     <Content Include="App\Core\config.js" />
     <Content Include="App\Core\core.module.js" />
+    <Content Include="App\Demos\demos.html" />
+    <Content Include="App\Demos\demos.js" />
+    <Content Include="App\Demos\demos.module.js" />
     <Content Include="App\routeHelper.js" />
     <Content Include="App\Services\services.module.js" />
-    <Content Include="App\Services\summary.factory.js" />
+    <Content Include="App\Services\data.factory.js" />
     <Content Include="App\Summary\summary.html" />
     <Content Include="App\Summary\summary.js" />
     <Content Include="App\Summary\summary.module.js" />

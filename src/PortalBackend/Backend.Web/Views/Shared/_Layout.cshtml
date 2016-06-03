@@ -4,7 +4,7 @@
     <script type="text/javascript">
         if (window) {
             window.appSettings = {
-                summaryDataUrl: 'api/data/getsummary'
+                dataUrl: 'api/data/get'
             };
         }
     </script>
@@ -53,20 +53,15 @@
         <div class="row">
             <div class="col-md-2">
                 <div class="list-group">
-                    <a ui-sref="#" class="list-group-item active">Home</a>
                     <a ui-sref="summary" class="list-group-item active">Summary</a>
-                    <a ui-sref="assoc" class="list-group-item" onclick="backend.core.viewAllAssociations()">View all associations</a>
-                    <a ui-sref="schedule" class="list-group-item">View scheduled demo</a>
+                    <a ui-sref="associations" class="list-group-item">All associations</a>
+                    <a ui-sref="associations.add" class="list-group-item">Add Association</a>
+                    <a ui-sref="demos" class="list-group-item">Demos</a>
                 </div>
             </div>
             <div class="col-md-10 contentArea">
 
                 <div ui-view></div>
-
-                <div class="panel panel-success">
-                    <div class="panel-heading">Latest association applications</div>
-                    <div class="panel-body"></div>
-                </div>
             </div>
         </div>
 

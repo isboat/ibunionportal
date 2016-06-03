@@ -1,9 +1,9 @@
 ﻿(function() {
     'use strict';
 
-    angular.module("app").config(['$stateProvider', '$urlRouterProvider', 'summaryServiceProvider', configureRoutes]);
+    angular.module("app").config(['$stateProvider', '$urlRouterProvider', 'dataServiceProvider', configureRoutes]);
 
-    function configureRoutes($stateProvider, $urlRouterProvider, summaryServiceProvider) {
+    function configureRoutes($stateProvider, $urlRouterProvider, dataServiceProvider) {
         $urlRouterProvider.otherwise('/summary');
 
         $stateProvider
@@ -15,14 +15,72 @@
                 resolve: {
                     summaryData: function () {
 
-                        return summaryServiceProvider.$get().getData().then(function (response) {
-                            console.log(response);
+                        return dataServiceProvider.$get().getData("summary").then(function (response) {
                             return response.data;
                         });
                     }
                 }
             })
-
-            //.state('')
+            .state('associations', {
+                url: '/associations',
+                templateUrl: 'App/Associations/viewall.html',
+                controller: 'viewall',
+                controllerAs: 'vm',
+                resolve: {
+                    associations: function() {
+                        return dataServiceProvider.$get().getData("allassc").then(function (response) {
+                            return response.data;
+                        });
+                    }
+                }
+            })
+            .state('associations.view', {
+                url: '/view/{id}',
+                templateUrl: 'App/Associations/view.html',
+                controller: 'view',
+                controllerAs: 'vm',
+                resolve: {
+                    association: function ($stateParams) {
+                        return dataServiceProvider.$get().getData("assoc|" + $stateParams.id).then(function(response) {
+                            return response.data;
+                        });
+                    }
+                }
+            })
+            .state('associations.add', {
+                url: '/add',
+                templateUrl: 'App/Associations/edit.html',
+                controller: 'edit',
+                controllerAs: 'vm',
+                resolve: {
+                    isNew: function() {
+                        return true;
+                    }
+                }
+            })
+            .state('associations.edit', {
+                url: '/edit/{id}',
+                templateUrl: 'App/Associations/edit.html',
+                controller: 'edit',
+                controllerAs: 'vm',
+                resolve: {
+                    isNew: function() {
+                        return false;
+                    }
+                }
+            })
+            .state('demos', {
+                url: '/demos',
+                templateUrl: 'App/Demos/demos.html',
+                controller: 'demos',
+                controllerAs: 'vm',
+                resolve: {
+                    demos: function() {
+                        return dataServiceProvider.$get().getData("demos" ).then(function (response) {
+                            return response.data;
+                        });
+                    }
+                }
+            })
     }
 })();

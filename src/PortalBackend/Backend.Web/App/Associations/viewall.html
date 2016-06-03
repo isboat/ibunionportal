@@ -1,0 +1,18 @@
+﻿<div ui-view>
+    <div>
+        <input type="submit" ui-sref=".add" value=" + Add new" class="btn btn-primary">
+    </div>
+    <br/>
+
+    <div ng-if="vm.noAsso">No association</div>
+    <div ng-if="vm.associations">
+        <div class="list-group">
+            <div class="list-group-item active">
+                <span>List of all associations</span>
+            </div>
+            <div ng-repeat="assc in vm.associations" class="list-group-item">
+                <span>{{assc.Name}}, {{assc.Address}}, {{assc.Telephone}}</span> <a ui-sref=".view({id: assc.Id})">view</a> <a ui-sref=".edit({id: assc.Id})">edit</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,17 +13,16 @@ namespace Backend.Web.Controllers
 
         public ActionResult Index()
         {
-            var model = associationLogic.GetSummary();
-            return this.View(model);
+            return this.View();
         }
 
         public ActionResult Demo()
         {
-            var req = new DemoRequest();
+            var req = new DemoRequestViewModel();
             return View(req);
         }
 
-        public ActionResult Demo(DemoRequest request)
+        public ActionResult Demo(DemoRequestViewModel request)
         {
             var response = demoLogic.RequestDemo(request);
             return View();
