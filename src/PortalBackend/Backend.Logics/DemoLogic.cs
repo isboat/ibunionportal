@@ -76,6 +76,52 @@ namespace Backend.Logics
             //}).ToList();
         }
 
+        public DemoRequestViewModel GetDemo(int id)
+        {
+            var demo = demoRepository.GetDemo(id);
+
+            return demo == null
+                ? null
+                : new DemoRequestViewModel
+                {
+                    Id = demo.Id,
+                    AsscName = demo.AsscName,
+                    AsscAddr = demo.AsscAddr,
+                    AsscCountry = demo.AsscCountry,
+                    Completed = demo.Completed,
+                    CompletionDate = demo.CompletionDate,
+                    Email = demo.Email,
+                    Firstname = demo.Firstname,
+                    Lastname = demo.Lastname,
+                    Schedule = demo.Schedule,
+                    ScheduleDate = demo.ScheduleDate,
+                    Telephone = demo.Telephone
+                };
+        }
+
+        public BaseResponse SaveDemo(DemoRequestViewModel data)
+        {
+            var result = demoRepository.SaveDemo(new Demo
+            {
+                Id = data.Id,
+                AsscAddr = data.AsscAddr,
+                AsscCountry = data.AsscCountry,
+                AsscName = data.AsscName,
+                Completed = data.Completed,
+                CompletionDate = data.CompletionDate,
+                Email = data.Email,
+                Firstname = data.Firstname,
+                Lastname = data.Lastname,
+                Schedule = data.Schedule,
+                ScheduleDate = data.ScheduleDate,
+                Telephone = data.Telephone
+            });
+
+            return result == 1
+                ? new BaseResponse {Success = true}
+                : new BaseResponse();
+        }
+
         private List<DemoSummaryViewMdoel> CreateDemos(List<DemoSummary> demoSummaries)
         {
             return demoSummaries.Select(req => new DemoSummaryViewMdoel

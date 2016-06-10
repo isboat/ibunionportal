@@ -1,10 +1,10 @@
-﻿<div>
+﻿<div ui-view>
     <div class="list-group">
         <div class="list-group-item active">
             <span>Requested demos</span>
         </div>
         <div ng-repeat="demo in vm.requesteddemos" class="list-group-item">
-            <span>{{demo.AsscName}}, {{demo.AsscAddr}}, {{demo.Telephone}}</span> <a ui-sref=".view({id: assc.Id})">view</a> <a ui-sref=".edit({id: assc.Id})">edit</a>
+            <span>{{demo.AsscName}}, {{demo.Telephone}}</span> <a ui-sref=".view({id: demo.Id})">view</a> <a ui-sref=".edit({id: demo.Id})">edit</a>
         </div>
         <div ng-show="!vm.requesteddemos.length" class="list-group-item">There are no requested demos at the moment</div>
     </div>
@@ -14,7 +14,7 @@
             <span>Scheduled demos</span>
         </div>
         <div ng-repeat="demo in vm.scheduleddemos" class="list-group-item">
-            <span>{{demo.AsscName}}, {{demo.AsscAddr}}, {{demo.Telephone}}</span> <a ui-sref=".view({id: assc.Id})">view</a> <a ui-sref=".edit({id: assc.Id})">edit</a>
+            <span>{{demo.AsscName}}, {{demo.AsscAddr}}, {{demo.Telephone}}</span> <a ui-sref=".view({id: demo.Id})">view</a> <a ui-sref=".edit({id: demo.Id})">edit</a>
         </div>
         <div ng-show="!vm.scheduleddemos.length" class="list-group-item">There are no scheduled demos at the moment</div>
     </div>
@@ -24,7 +24,7 @@
             <span>Completed demos</span>
         </div>
         <div ng-repeat="demo in vm.completeddemos" class="list-group-item">
-            <span>{{demo.AsscName}}, {{demo.AsscAddr}}, {{demo.Telephone}}</span> <a ui-sref=".view({id: assc.Id})">view</a> <a ui-sref=".edit({id: assc.Id})">edit</a>
+            <span>{{demo.AsscName}}, {{demo.AsscAddr}}, {{demo.Telephone}}</span> <a ui-sref=".view({id: demo.Id})">view</a> <a ui-sref=".edit({id: demo.Id})">edit</a>
         </div>
         <div ng-show="!vm.completeddemos.length" class="list-group-item">There are no completed demos at the moment</div>
     </div>

@@ -13,5 +13,7 @@ namespace Portal.DataAccess.Interfaces
 
         List<Demo> GetCompletedDemos();
         List<Demo> GetScheduledDemos();
+        Demo GetDemo(int id);
+        int SaveDemo(Demo demo);
     }
 }

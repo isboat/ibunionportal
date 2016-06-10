@@ -7,7 +7,8 @@
 
     function dataService($http, $q, config) {
         var service = {
-            getData: getData
+            getData: getData,
+            saveDemo: saveDemo
         };
 
         return service;
@@ -26,6 +27,30 @@
                     deferred.resolve(response);
                 },
                 function(response) {
+                    deferred.reject(response);
+                });
+
+            return deferred.promise;
+        }
+
+        function saveDemo(demo) {
+            return postData(demo, { dataUrl: config.appSettings.saveDemoUrl });
+        }
+
+        function postData(dataToPost, options) {
+
+            var deferred = $q.defer();
+
+            $http({
+                method: 'POST',
+                url: options.dataUrl,
+                data: dataToPost,
+                cache: false
+            }).then(
+                function (response) {
+                    deferred.resolve(response);
+                },
+                function (response) {
                     deferred.reject(response);
                 });
 

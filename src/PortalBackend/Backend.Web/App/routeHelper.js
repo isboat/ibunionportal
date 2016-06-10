@@ -82,5 +82,37 @@
                     }
                 }
             })
+            .state('demos.view', {
+                url: '/view/{id}',
+                templateUrl: 'App/Demos/demo.html',
+                controller: 'demo',
+                controllerAs: 'vm',
+                resolve: {
+                    demo: function ($stateParams) {
+                        return dataServiceProvider.$get().getData("demo|" + $stateParams.id).then(function (response) {
+                            return response.data;
+                        });
+                    },
+                    viewOnly: function() {
+                        return true;
+                    }
+                }
+            })
+            .state('demos.edit', {
+                url: '/edit/{id}',
+                templateUrl: 'App/Demos/demo.html',
+                controller: 'demo',
+                controllerAs: 'vm',
+                resolve: {
+                    demo: function ($stateParams) {
+                        return dataServiceProvider.$get().getData("demo|" + $stateParams.id).then(function (response) {
+                            return response.data;
+                        });
+                    },
+                    viewOnly: function() {
+                        return false;
+                    }
+                }
+            })
     }
 })();

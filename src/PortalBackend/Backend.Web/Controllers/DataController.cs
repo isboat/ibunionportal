@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Backend.Interfaces;
 using Backend.ViewModels;
+using Backend.ViewModels.Demo;
 using Portal.Common.IoC;
 
 namespace Backend.Web.Controllers
@@ -22,6 +23,12 @@ namespace Backend.Web.Controllers
             return string.IsNullOrEmpty(dataKey) ?
                 string.Empty :
                 this.DataMapper(dataKey);
+        }
+
+        [HttpPost]
+        public BaseResponse SaveDemo(DemoRequestViewModel data)
+        {
+            return data == null ? new BaseResponse() : this.demoLogic.SaveDemo(data);
         }
 
         private object DataMapper(string dataKey)
@@ -55,6 +62,10 @@ namespace Backend.Web.Controllers
                         Scheduled = demoLogic.GetScheduledDemos(),
                         Requested = demoLogic.GetRequestedDemos()
                     };
+                    break;
+
+                case "demo":
+                    result = demoLogic.GetDemo(Convert.ToInt32(segments[1]));
                     break;
 
                 default:

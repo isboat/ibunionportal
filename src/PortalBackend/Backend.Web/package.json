@@ -49,7 +49,8 @@
     "App/Associations/edit.js",
 
     "App/Demos/demos.module.js",
-    "App/Demos/demos.js"
+    "App/Demos/demos.js",
+    "App/Demos/demo.js"
   ],
   "jsFilesPath":  "App/**/*.js"
 }

@@ -12,5 +12,7 @@ namespace Backend.Interfaces
 
         List<DemoRequestViewModel> GetCompletedDemos();
         List<DemoRequestViewModel> GetScheduledDemos();
+        DemoRequestViewModel GetDemo(int id);
+        BaseResponse SaveDemo(DemoRequestViewModel data);
     }
 }

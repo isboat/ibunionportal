@@ -135,6 +135,8 @@
     <Content Include="App\Associations\viewall.js" />
     <Content Include="App\Core\config.js" />
     <Content Include="App\Core\core.module.js" />
+    <Content Include="App\Demos\demo.html" />
+    <Content Include="App\Demos\demo.js" />
     <Content Include="App\Demos\demos.html" />
     <Content Include="App\Demos\demos.js" />
     <Content Include="App\Demos\demos.module.js" />

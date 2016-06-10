@@ -1,0 +1,85 @@
+﻿<div class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-md-4" for="Name">Association name</label>
+        <div class="col-md-8">
+            <input ng-model="vm.demo.AsscName" class="form-control text-box single-line" id="AsscName" type="text" ng-disabled="vm.viewonly">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-4" for="Name">Requested Person's first name</label>
+        <div class="col-md-8">
+            <input ng-model="vm.demo.Firstname" class="form-control text-box single-line" id="Name" type="text" ng-disabled="vm.viewonly">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-4" for="LastName">Requested Person's surname</label>
+        <div class="col-md-8">
+            <input ng-model="vm.demo.Lastname" class="form-control text-box single-line" id="LastName" type="text" ng-disabled="vm.viewonly">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-4" for="Email">Email</label>
+        <div class="col-md-8">
+            <input ng-model="vm.demo.Email" class="form-control text-box single-line" id="Email" type="text" ng-disabled="vm.viewonly">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-4" for="Address">Address/Location</label>
+        <div class="col-md-8">
+            <input ng-model="vm.demo.AsscAddr" class="form-control text-box single-line" id="Address" type="text" ng-disabled="vm.viewonly">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-4" for="Country">Country</label>
+        <div class="col-md-8">
+            <input ng-model="vm.demo.AsscCountry" class="form-control text-box single-line" id="Country" type="text" ng-disabled="vm.viewonly">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-4" for="Telephone">Telephone</label>
+        <div class="col-md-8">
+            <input ng-model="vm.demo.Telephone" class="form-control text-box single-line" id="Telephone" type="text" ng-disabled="vm.viewonly">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-4" for="completed">Demo completed ?</label>
+        <div class="col-md-8">
+            <input ng-model="vm.demo.Completed" class="form-control text-box single-line" id="completed" type="text" ng-disabled="vm.viewonly">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-4" for="completed">Demo completed date</label>
+        <div class="col-md-8">
+            <input ng-model="vm.demo.CompletedDate" class="form-control text-box single-line" id="completed" type="text" ng-disabled="vm.viewonly">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-4" for="schedule">Demo schedule ?</label>
+        <div class="col-md-8">
+            <input ng-model="vm.demo.Schedule" class="form-control text-box single-line" id="schedule" type="text" ng-disabled="vm.viewonly">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-4" for="scheduledate">Demo schedule date</label>
+        <div class="col-md-8">
+            <input ng-model="vm.demo.ScheduleDate" class="form-control text-box single-line" id="scheduledate" type="text" ng-disabled="vm.viewonly">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-12">
+            <button class="btn btn-primary" ui-sref="demos.edit({id: vm.demo.Id})" ng-show="vm.viewonly">Edit</button>
+            <button class="btn btn-primary" ng-click="vm.saveDemo()" ng-show="!vm.viewonly">Save</button>
+        </div>
+    </div>
+
+</div>
