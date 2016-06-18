@@ -129,8 +129,11 @@
     <Content Include="App\Associations\associations.module.js" />
     <Content Include="App\Associations\edit.html" />
     <Content Include="App\Associations\edit.js" />
-    <Content Include="App\Associations\view.html" />
-    <Content Include="App\Associations\view.js" />
+    <Content Include="App\Association\payments.html" />
+    <Content Include="App\Association\payments.js" />
+    <Content Include="App\Association\view.html" />
+    <Content Include="App\Association\association.module.js" />
+    <Content Include="App\Association\view.js" />
     <Content Include="App\Associations\viewall.html" />
     <Content Include="App\Associations\viewall.js" />
     <Content Include="App\Core\config.js" />
@@ -159,6 +162,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\loading.gif" />
     <Content Include="gulpfile.js" />
+    <Content Include="Images\loading.gif" />
     <Content Include="Images\profile.png" />
     <Content Include="Images\ProfilePics\5e790e8284484e4482215662de6c256f29840308.jpg" />
     <Content Include="Scripts\bootstrap.js" />

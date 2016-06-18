@@ -6,6 +6,7 @@
         "app.core",
         "app.summary",
         "app.associations",
+        "app.association",
         "app.demos",
 
         "app.services"

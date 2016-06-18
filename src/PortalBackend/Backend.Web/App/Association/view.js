@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('app.associations').controller('view', view);
+    angular.module('app.association').controller('view', view);
 
     view.$inject = ['$location', 'association'];
 

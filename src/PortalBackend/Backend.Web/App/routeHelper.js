@@ -34,19 +34,6 @@
                     }
                 }
             })
-            .state('associations.view', {
-                url: '/view/{id}',
-                templateUrl: 'App/Associations/view.html',
-                controller: 'view',
-                controllerAs: 'vm',
-                resolve: {
-                    association: function ($stateParams) {
-                        return dataServiceProvider.$get().getData("assoc|" + $stateParams.id).then(function(response) {
-                            return response.data;
-                        });
-                    }
-                }
-            })
             .state('associations.add', {
                 url: '/add',
                 templateUrl: 'App/Associations/edit.html',
@@ -66,6 +53,32 @@
                 resolve: {
                     isNew: function() {
                         return false;
+                    }
+                }
+            })
+            .state('association', {
+                url: '/association/{id}',
+                templateUrl: 'App/Association/view.html',
+                controller: 'view',
+                controllerAs: 'vm',
+                resolve: {
+                    association: function ($stateParams) {
+                        return dataServiceProvider.$get().getData("assoc|" + $stateParams.id).then(function(response) {
+                            return response.data;
+                        });
+                    }
+                }
+            })
+            .state('association.payments', {
+                url: '/payments',
+                templateUrl: 'App/Association/payments.html',
+                controller: 'payments',
+                controllerAs: 'vm',
+                resolve: {
+                    association: function ($stateParams) {
+                        return dataServiceProvider.$get().getData("assoc|" + $stateParams.id).then(function (response) {
+                            return response.data;
+                        });
                     }
                 }
             })

@@ -45,8 +45,11 @@
 
     "App/Associations/associations.module.js",
     "App/Associations/viewall.js",
-    "App/Associations/view.js",
     "App/Associations/edit.js",
+	
+    "App/Association/association.module.js",
+    "App/Association/view.js",
+    "App/Association/payments.js",
 
     "App/Demos/demos.module.js",
     "App/Demos/demos.js",
