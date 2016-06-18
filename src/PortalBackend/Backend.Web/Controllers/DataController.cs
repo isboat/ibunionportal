@@ -17,6 +17,8 @@ namespace Backend.Web.Controllers
 
         private readonly IAssociationLogic associationLogic = IoC.Instance.Resolve<IAssociationLogic>();
 
+        private readonly IPaymentsLogic paymentsLogic = IoC.Instance.Resolve<IPaymentsLogic>();
+
         [HttpGet]
         public object Get(string dataKey)
         {
@@ -66,6 +68,13 @@ namespace Backend.Web.Controllers
 
                 case "demo":
                     result = demoLogic.GetDemo(Convert.ToInt32(segments[1]));
+                    break;
+
+                case "payments":
+                    result = new
+                    {
+                        Payments = paymentsLogic.GetPayments(Convert.ToInt32(segments[1]))
+                    };
                     break;
 
                 default:

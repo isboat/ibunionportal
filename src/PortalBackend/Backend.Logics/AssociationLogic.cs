@@ -40,7 +40,7 @@ namespace Backend.Logics
         {
             var assoc = associationRepository.GetAssociation(id);
             return assoc == null
-                ? new AssociationViewModel { Name = "Association Name", Address = "Association Address", Telephone = "123456789" }
+                ? new AssociationViewModel { Name = "Association Name", Address = "Association Address", Telephone = "123456789", PaymentType = "Monthly" }
                 : new AssociationViewModel
                 {
                     Address = assoc.Address,

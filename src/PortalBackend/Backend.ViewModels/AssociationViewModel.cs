@@ -21,5 +21,7 @@ namespace Backend.ViewModels
         public string JoinDate { get; set; }
 
         public string Password { get; set; }
+
+        public string PaymentType { get; set; }
     }
 }

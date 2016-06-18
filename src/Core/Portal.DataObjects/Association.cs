@@ -21,5 +21,7 @@ namespace Portal.DataObjects
         public string Telephone { get; set; }
 
         public string Password { get; set; }
+                
+        public string PaymentType { get; set; }
     }
 }

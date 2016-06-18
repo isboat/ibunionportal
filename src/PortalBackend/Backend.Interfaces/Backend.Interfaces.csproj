@@ -44,6 +44,7 @@
     <Compile Include="IAssociationLogic.cs" />
     <Compile Include="ICustomPrincipal.cs" />
     <Compile Include="IDemoLogic.cs" />
+    <Compile Include="IPaymentsLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IAuthentication.cs" />
   </ItemGroup>

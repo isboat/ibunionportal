@@ -47,6 +47,7 @@
     <Compile Include="AuthenticationModels\CustomPrincipal.cs" />
     <Compile Include="AuthenticationModels\CustomPrincipalSerializeModel.cs" />
     <Compile Include="DemoLogic.cs" />
+    <Compile Include="PaymentsLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

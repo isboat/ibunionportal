@@ -9,9 +9,12 @@
                     <div>{{vm.association.Country}}</div>
                     <br />
                     <div>{{vm.association.Telephone}}</div>
+                    <br />
+                    <div>Payment type: {{vm.association.PaymentType}}</div>
                 </div>
                 <div class="col-sm-6">
                     <button class="btn btn-primary" ui-sref=".payments({id: vm.association.Id})">Payment details</button>
+                    <button class="btn btn-primary" ui-sref=".subscription({id: vm.association.Id})">Subscription details</button>
                 </div>
             </div>
         </div>
