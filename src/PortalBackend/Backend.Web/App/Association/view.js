@@ -15,7 +15,6 @@
         activate();
 
         function activate() {
-            console.log(association);
         }
     }
 })();

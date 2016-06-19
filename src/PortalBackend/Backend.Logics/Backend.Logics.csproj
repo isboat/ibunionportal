@@ -49,6 +49,7 @@
     <Compile Include="DemoLogic.cs" />
     <Compile Include="PaymentsLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubscriptionLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Portal.Caching\Portal.Caching.csproj">

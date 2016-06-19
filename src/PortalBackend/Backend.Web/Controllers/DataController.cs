@@ -14,9 +14,8 @@ namespace Backend.Web.Controllers
     public class DataController : ApiController
     {
         private readonly IDemoLogic demoLogic = IoC.Instance.Resolve<IDemoLogic>();
-
         private readonly IAssociationLogic associationLogic = IoC.Instance.Resolve<IAssociationLogic>();
-
+        private readonly ISubscriptionLogic subscriptionLogic = IoC.Instance.Resolve<ISubscriptionLogic>();
         private readonly IPaymentsLogic paymentsLogic = IoC.Instance.Resolve<IPaymentsLogic>();
 
         [HttpGet]
@@ -74,6 +73,13 @@ namespace Backend.Web.Controllers
                     result = new
                     {
                         Payments = paymentsLogic.GetPayments(Convert.ToInt32(segments[1]))
+                    };
+                    break;
+
+                case "subscription":
+                    result = new
+                    {
+                        Subscription = subscriptionLogic.GetSubscription(Convert.ToInt32(segments[1]))
                     };
                     break;
 

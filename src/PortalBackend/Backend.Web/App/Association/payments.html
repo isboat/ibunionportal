@@ -1,4 +1,23 @@
 ﻿<div style="text-align: center" ng-show="vm.showLoading">
     <img width="50" height="50" src="/Images/loading.gif" />
 </div>
-<div>payments {{vm.title}}</div>
+<div ng-if="vm.message">{{vm.message}}</div>
+<div ng-show="vm.payments.length">
+    <table>
+        <tr>
+            <th ng-show="vm.isMonthly">Month</th>
+            <th>Year</th>
+            <th>Paid</th>
+            <th>Date paid</th>
+        </tr>
+        <tr ng-repeat="pay in vm.payments">
+            <td ng-show="vm.isMonthly">{{pay.Month}}</td>
+            <td>{{pay.Year}}</td>
+            <td>
+                <span ng-show="pay.Paid">paid</span>
+                <span ng-show="!pay.Paid">not paid</span>
+            </td>
+            <td>{{pay.DatePaid}}</td>
+        </tr>
+    </table>
+</div>

@@ -131,6 +131,8 @@
     <Content Include="App\Associations\edit.js" />
     <Content Include="App\Association\payments.html" />
     <Content Include="App\Association\payments.js" />
+    <Content Include="App\Association\subscription.html" />
+    <Content Include="App\Association\subscription.js" />
     <Content Include="App\Association\view.html" />
     <Content Include="App\Association\association.module.js" />
     <Content Include="App\Association\view.js" />

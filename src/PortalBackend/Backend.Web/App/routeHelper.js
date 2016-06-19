@@ -82,6 +82,19 @@
                     }
                 }
             })
+            .state('association.subscription', {
+                url: '/subscription',
+                templateUrl: 'App/Association/subscription.html',
+                controller: 'subscription',
+                controllerAs: 'vm',
+                resolve: {
+                    association: function ($stateParams) {
+                        return dataServiceProvider.$get().getData("assoc|" + $stateParams.id).then(function (response) {
+                            return response.data;
+                        });
+                    }
+                }
+            })
             .state('demos', {
                 url: '/demos',
                 templateUrl: 'App/Demos/demos.html',
