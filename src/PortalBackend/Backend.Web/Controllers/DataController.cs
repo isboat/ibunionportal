@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Web.Http;
 using Backend.Interfaces;
 using Backend.ViewModels;
@@ -17,6 +18,8 @@ namespace Backend.Web.Controllers
         private readonly IAssociationLogic associationLogic = IoC.Instance.Resolve<IAssociationLogic>();
         private readonly ISubscriptionLogic subscriptionLogic = IoC.Instance.Resolve<ISubscriptionLogic>();
         private readonly IPaymentsLogic paymentsLogic = IoC.Instance.Resolve<IPaymentsLogic>();
+
+        public DataController(){}
 
         [HttpGet]
         public object Get(string dataKey)
