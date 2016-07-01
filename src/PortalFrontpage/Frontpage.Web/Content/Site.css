@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.domain {
+    color: #777777;
+}
+.error {
+    border: red solid 1px;
+}

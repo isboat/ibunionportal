@@ -10,7 +10,7 @@ namespace Frontpage.Web.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly IDemoLogic demoLogic = IoC.Instance.Resolve<IDemoLogic>();
+        private readonly IDemoLogic demoLogic = IoC.Instance.Resolve<IDemoLogic>();
 
         public ActionResult Index()
         {
