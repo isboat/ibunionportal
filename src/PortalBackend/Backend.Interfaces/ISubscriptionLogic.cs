@@ -9,6 +9,7 @@ namespace Backend.Interfaces
 {
     public interface ISubscriptionLogic
     {
-        SubscriptionViewModel GetSubscription(int assocId);
+        List<SubscriptionViewModel> GetSubscriptions(int assocId);
+        BaseResponse SubscribeAssoc(SubscribeAssocRequest data);
     }
 }

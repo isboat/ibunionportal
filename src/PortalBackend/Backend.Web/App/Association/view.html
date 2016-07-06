@@ -12,10 +12,22 @@
                     <br />
                     <div>Payment type: {{vm.association.PaymentType}}</div>
                 </div>
-                <div class="col-sm-6">
-                    <button class="btn btn-primary" ui-sref=".payments">Payment details</button>
-                    <button class="btn btn-primary" ui-sref=".subscription">Subscription details</button>
-                </div>
+                <div class="col-sm-6"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-success">
+    <div class="panel-heading">Actions</div>
+    <div class="panel-body">
+        <div class="container-fluid">
+            <div>
+                <button class="btn btn-primary" ui-sref=".payments">View payments</button>
+                <button class="btn btn-primary" ui-sref=".addpayment">+ Add payment</button>
+
+                <button ng-show="vm.association.IsActive" class="btn btn-success" ui-sref=".subscription">Subscription details</button>
+                <button ng-hide="vm.association.IsActive" class="btn btn-success" ui-sref=".subscribe">Activate subscription</button>
             </div>
         </div>
     </div>

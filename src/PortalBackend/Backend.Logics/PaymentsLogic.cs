@@ -14,5 +14,10 @@ namespace Backend.Logics
         {
             return new List<PaymentViewModel>();
         }
+
+        public BaseResponse AddPayment(AddPaymentRequest request)
+        {
+            return new BaseResponse {Success = true};
+        }
     }
 }

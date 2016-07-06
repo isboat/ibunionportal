@@ -1,0 +1,33 @@
+﻿<div>Add payment</div>
+
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="month">Month</label>
+        <div class="col-md-10">
+            <select id="month" ng-model="vm.month" ng-options="mo for mo in vm.months" class="form-control text-box single-line"></select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="year">Year</label>
+        <div class="col-md-10">
+            <select id="year" ng-model="vm.year" ng-options="yr for yr in vm.years" class="form-control text-box single-line"></select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="amount">Amount</label>
+        <div class="col-md-10">
+            <input type="text" id="amount" ng-model="vm.amount" class="form-control text-box single-line" style="display: inline-block;" placeholder="20" /> ghs
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Add Payment" ng-click="vm.add()"class="btn btn-primary">
+
+        </div>
+    </div>
+
+</div>

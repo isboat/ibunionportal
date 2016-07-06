@@ -1,0 +1,26 @@
+﻿subscribe
+
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="start">Start Date</label>
+        <div class="col-md-10">
+            <input type="text" id="start" ng-model="vm.start" class="form-control text-box single-line" placeholder="dd/mm/yyyy"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="end">End date</label>
+        <div class="col-md-10">
+            <input type="text" id="end" ng-model="vm.end" class="form-control text-box single-line" placeholder="dd/mm/yyyy" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save Subscription" ng-click="vm.subscribeAssoc()" class="btn btn-primary">
+
+        </div>
+    </div>
+
+</div>

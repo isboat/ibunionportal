@@ -8,7 +8,9 @@
     function dataService($http, $q, config) {
         var service = {
             getData: getData,
-            saveDemo: saveDemo
+            saveDemo: saveDemo,
+            addPayment: addPayment,
+            subscribeAssoc: subscribeAssoc
         };
 
         return service;
@@ -35,6 +37,23 @@
 
         function saveDemo(demo) {
             return postData(demo, { dataUrl: config.appSettings.saveDemoUrl });
+        }
+
+        function addPayment(month, year, amount, assocId) {
+            return postData({
+                Month: month,
+                Year: year,
+                Amount: amount,
+                AssocId: assocId
+            }, { dataUrl: config.appSettings.addPaymentUrl });
+        }
+
+        function subscribeAssoc(start, end, assocId) {
+            return postData({
+                Start: start,
+                End: end,
+                AssocId: assocId
+            }, { dataUrl: config.appSettings.subscribeAssocUrl });
         }
 
         function postData(dataToPost, options) {

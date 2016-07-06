@@ -10,7 +10,21 @@ namespace Backend.ViewModels
     {
         public int SubscriptionId { get; set; }
         public int AssocId { get; set; }
-        public bool IsActive { get; set; }
+
+        public bool IsActive
+        {
+            get
+            {
+                DateTime d;
+                if (!string.IsNullOrEmpty(EndDate) && DateTime.TryParse(EndDate, out d))
+                {
+                    return  d > DateTime.Now;
+                }
+
+                return false;
+            }
+        }
+
         public string StartDate { get; set; }
         public string EndDate { get; set; }
     }

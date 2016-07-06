@@ -1,3 +1,22 @@
-﻿{{vm.title}}
+﻿<div style="text-align: center" ng-show="vm.showLoading">
+    <img width="50" height="50" src="/Images/loading.gif" />
+</div>
+<div ng-if="vm.message">{{vm.message}}</div>
 
-<div></div>
+<div ng-show="vm.subscriptions.length">
+    <button class="btn btn-success" ui-sref=".addpayment">Add payment</button>
+
+    <table>
+        <tr>
+            <th>Start</th>
+            <th>End</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="sub in vm.subscriptions">
+            <td>{{sub.StartDate}}</td>
+            <td>{{sub.EndDate}}</td>
+            <td ng-if="sub.IsActive">Active</td>
+        </tr>
+    </table>
+</div>
+

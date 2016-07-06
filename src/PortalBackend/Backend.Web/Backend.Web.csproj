@@ -129,8 +129,12 @@
     <Content Include="App\Associations\associations.module.js" />
     <Content Include="App\Associations\edit.html" />
     <Content Include="App\Associations\edit.js" />
+    <Content Include="App\Association\addpayment.html" />
+    <Content Include="App\Association\addpayment.js" />
     <Content Include="App\Association\payments.html" />
     <Content Include="App\Association\payments.js" />
+    <Content Include="App\Association\subscribe.html" />
+    <Content Include="App\Association\subscribe.js" />
     <Content Include="App\Association\subscription.html" />
     <Content Include="App\Association\subscription.js" />
     <Content Include="App\Association\view.html" />
@@ -174,6 +178,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="package.json" />
     <None Include="Properties\PublishProfiles\backendDeploy.pubxml" />
     <None Include="Properties\PublishProfiles\backendFTP.pubxml" />
     <None Include="Properties\PublishProfiles\dep.pubxml" />

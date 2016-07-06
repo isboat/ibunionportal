@@ -13,10 +13,12 @@ namespace Backend.Logics
     public class AssociationLogic : IAssociationLogic
     {
         private readonly IAssociationRepository associationRepository;
+        private readonly ISubscriptionLogic subscriptionLogic;
 
-        public AssociationLogic(IAssociationRepository associationRepository)
+        public AssociationLogic(IAssociationRepository associationRepository, ISubscriptionLogic subscriptionLogic)
         {
             this.associationRepository = associationRepository;
+            this.subscriptionLogic = subscriptionLogic;
         }
 
         public List<AssociationViewModel> GetAllAssociations()
@@ -39,13 +41,25 @@ namespace Backend.Logics
         public AssociationViewModel GetAssociation(int id)
         {
             var assoc = associationRepository.GetAssociation(id);
-            return assoc == null
-                ? new AssociationViewModel { Name = "Association Name", Address = "Association Address", Telephone = "123456789", PaymentType = "Monthly" }
-                : new AssociationViewModel
+            if (assoc == null)
+            {
+                return new AssociationViewModel
+                {
+                    Name = "Association Name",
+                    Address = "Association Address",
+                    Telephone = "123456789",
+                    PaymentType = "Monthly"
+                };
+            }
+
+            var subscriptions = this.subscriptionLogic.GetSubscriptions(id);
+
+            return new AssociationViewModel
                 {
                     Address = assoc.Address,
                     Id = assoc.Id,
-                    Name = assoc.Name
+                    Name = assoc.Name,
+                    IsActive = subscriptions.Any(x => x.IsActive)
                 };
         }
     }

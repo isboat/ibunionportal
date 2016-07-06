@@ -35,6 +35,18 @@ namespace Backend.Web.Controllers
             return data == null ? new BaseResponse() : this.demoLogic.SaveDemo(data);
         }
 
+        [HttpPost]
+        public BaseResponse AddPayment(AddPaymentRequest data)
+        {
+            return data == null ? new BaseResponse() : this.paymentsLogic.AddPayment(data);
+        }
+
+        [HttpPost]
+        public BaseResponse SubscribeAssoc(SubscribeAssocRequest data)
+        {
+            return data == null ? new BaseResponse() : this.subscriptionLogic.SubscribeAssoc(data);
+        }
+
         private object DataMapper(string dataKey)
         {
             var segments = dataKey.Split('|');
@@ -82,7 +94,7 @@ namespace Backend.Web.Controllers
                 case "subscription":
                     result = new
                     {
-                        Subscription = subscriptionLogic.GetSubscription(Convert.ToInt32(segments[1]))
+                        Subscriptions = subscriptionLogic.GetSubscriptions(Convert.ToInt32(segments[1]))
                     };
                     break;
 

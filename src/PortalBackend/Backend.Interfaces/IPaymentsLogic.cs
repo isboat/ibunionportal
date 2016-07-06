@@ -10,5 +10,7 @@ namespace Backend.Interfaces
     public interface IPaymentsLogic
     {
         List<PaymentViewModel> GetPayments(int asscId);
+
+        BaseResponse AddPayment(AddPaymentRequest request);
     }
 }

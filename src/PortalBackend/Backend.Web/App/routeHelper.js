@@ -82,10 +82,36 @@
                     }
                 }
             })
+            .state('association.addpayment', {
+                url: '/addpayment',
+                templateUrl: 'App/Association/addpayment.html',
+                controller: 'addpayment',
+                controllerAs: 'vm',
+                resolve: {
+                    association: function ($stateParams) {
+                        return dataServiceProvider.$get().getData("assoc|" + $stateParams.id).then(function (response) {
+                            return response.data;
+                        });
+                    }
+                }
+            })
             .state('association.subscription', {
                 url: '/subscription',
                 templateUrl: 'App/Association/subscription.html',
                 controller: 'subscription',
+                controllerAs: 'vm',
+                resolve: {
+                    association: function ($stateParams) {
+                        return dataServiceProvider.$get().getData("assoc|" + $stateParams.id).then(function (response) {
+                            return response.data;
+                        });
+                    }
+                }
+            })
+            .state('association.subscribe', {
+                url: '/subscribe',
+                templateUrl: 'App/Association/subscribe.html',
+                controller: 'subscribe',
                 controllerAs: 'vm',
                 resolve: {
                     association: function ($stateParams) {

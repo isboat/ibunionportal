@@ -1,33 +1,30 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    
     <script type="text/javascript">
         if (window) {
             window.appSettings = {
                 dataUrl: 'api/data/get',
-                saveDemoUrl: 'api/data/saveDemo'
+                saveDemoUrl: 'api/data/saveDemo',
+                addPaymentUrl: 'api/data/addPayment',
+                subscribeAssocUrl: 'api/data/subscribeAssoc'
             };
         }
     </script>
+
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IB Union Portal</title>
-    
-    <link href="~/Content/styles.css" rel="stylesheet" />
 
-    
-    @*@Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)*@
+    <link href="~/Content/styles.css" rel="stylesheet"/>
 
     <style type="text/css">
         .printOnly {
             display: none;
         }
     </style>
+
 </head>
 <body ng-app="app">
     <div class="navbar navbar-fixed-top navbar-default">

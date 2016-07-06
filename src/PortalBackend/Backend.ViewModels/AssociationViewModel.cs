@@ -23,5 +23,7 @@ namespace Backend.ViewModels
         public string Password { get; set; }
 
         public string PaymentType { get; set; }
+
+        public bool IsActive { get; set; }
     }
 }

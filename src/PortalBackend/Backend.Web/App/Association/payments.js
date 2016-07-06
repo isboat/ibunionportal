@@ -24,7 +24,7 @@
                 if (result && result.Payments) {
                     vm.payments = result.Payments;
 
-                    vm.message = vm.payments.length > 0 ? "" : "No payment information available."
+                    vm.message = vm.payments.length > 0 ? "" : "No payment information available.";
                 }
             }, function () { vm.showLoading = false; vm.message = "Error getting payment details" });
         }
