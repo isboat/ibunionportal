@@ -177,6 +177,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="unity.config" />
+    <Content Include="Views\Home\GetStarted.cshtml" />
+    <Content Include="Views\Shared\BaseResponse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -201,6 +203,10 @@
     <ProjectReference Include="..\Frontpage.Logics\Frontpage.Logics.csproj">
       <Project>{48d7ec36-da48-4854-86e9-e16ff8274031}</Project>
       <Name>Frontpage.Logics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Frontpage.ViewModels\Frontpage.ViewModels.csproj">
+      <Project>{10bc8600-97f1-4f21-b393-144c142d9807}</Project>
+      <Name>Frontpage.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

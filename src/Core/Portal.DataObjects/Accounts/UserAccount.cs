@@ -36,5 +36,7 @@
         public string MembershipType { get; set; }
 
         public string ProfilePicUrl { get; set; }
+
+        public int AsscId { get; set; }
     }
 }

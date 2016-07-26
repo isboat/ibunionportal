@@ -43,6 +43,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Portal.DataAccess\Portal.DataAccess.csproj">
+      <Project>{467E11F2-92A7-4A29-AD70-36E24868A1D3}</Project>
+      <Name>Portal.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Portal.DataObjects\Portal.DataObjects.csproj">
+      <Project>{51B8B4C8-627C-4E9C-B6BF-FC2C2438C247}</Project>
+      <Name>Portal.DataObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Frontpage.Interfaces\Frontpage.Interfaces.csproj">
       <Project>{31669643-5985-439D-AB3D-BEE56AAE53EC}</Project>
       <Name>Frontpage.Interfaces</Name>

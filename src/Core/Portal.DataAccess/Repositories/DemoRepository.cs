@@ -120,11 +120,24 @@ namespace Portal.DataAccess.Repositories
             this.logProvider.Info("DemoRepository, SaveDemo id=" + demo.Id);
             try
             {
-                var query = string.Format("update demorequest set asscname = '{0}', firstname = '{1}', lastname = '{2}', telephone = '{3}', asscaddr = '{4}', " +
-                                          "country = '{5}', email = '{6}', scheduled = {7}, completed = {8}, scheduleddate = '{9}', completeddate = '{10}' " +
-                                          "where iddemoreq = {11};",
-                                          demo.AsscName, demo.Firstname, demo.Lastname, demo.Telephone, demo.AsscAddr, demo.AsscCountry, demo.Email,
-                                          demo.Schedule? 1 : 0, demo.Completed? 1 : 0, demo.ScheduleDate, demo.CompletionDate, demo.Id);
+                string query = "";
+
+                if (demo.Id > 0)
+                {
+                    query = string.Format(
+                        "update demorequest set asscname = '{0}', firstname = '{1}', lastname = '{2}', telephone = '{3}', asscaddr = '{4}', " +
+                        "country = '{5}', email = '{6}', scheduled = {7}, completed = {8}, scheduleddate = '{9}', completeddate = '{10}' " +
+                        "where iddemoreq = {11};",
+                        demo.AsscName, demo.Firstname, demo.Lastname, demo.Telephone, demo.AsscAddr, demo.AsscCountry,
+                        demo.Email,
+                        demo.Schedule ? 1 : 0, demo.Completed ? 1 : 0, demo.ScheduleDate, demo.CompletionDate, demo.Id);
+                }
+                else
+                {
+                    query = string.Format(
+                        "insert into demorequest(asscname, firstname, lastname, telephone, asscaddr, country, email, scheduled, completed) values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', 0, 0)", 
+                        demo.AsscName, demo.Firstname, demo.Lastname, demo.Telephone, demo.AsscAddr, demo.AsscCountry, demo.Email);
+                }
 
                 using (var connection = new MySqlConnection(this.ConString))
                 {

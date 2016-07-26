@@ -19,7 +19,7 @@ namespace Portal.DataAccess.Repositories
             this.logProvider = logProvider;
         }
 
-        public BaseUserInfo Login(string email, string password)
+        public BaseUserInfo Login(string email, string password, int asscId)
         {
             try
             {
@@ -27,57 +27,33 @@ namespace Portal.DataAccess.Repositories
 
                 using (var connection = new MySqlConnection(this.ConString))
                 {
-                    using (var cmd = new MySqlCommand("login", connection))
+                    var query =
+                        string.Format("select * from member_information where email_address = '{0}' and password = '{1}' and idass = '{2}' and deleted = 0 limit 1;",
+                            email, password, asscId);
+
+                    using (var cmd = new MySqlCommand(query, connection))
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandType = CommandType.Text;
                         connection.Open();
 
-                        cmd.Parameters.AddWithValue("@p_email_in", email);
-                        cmd.Parameters["@p_email_in"].Direction = ParameterDirection.Input;
+                        var record = cmd.ExecuteReader();
 
-                        cmd.Parameters.AddWithValue("@p_passwd_in", password);
-                        cmd.Parameters["@p_passwd_in"].Direction = ParameterDirection.Input;
-
-                        cmd.Parameters.AddWithValue("@id_out", MySqlDbType.Int32);
-                        cmd.Parameters["@id_out"].Direction = ParameterDirection.Output;
-
-                        cmd.Parameters.Add(new MySqlParameter("@fn_out", MySqlDbType.VarChar));
-                        cmd.Parameters["@fn_out"].Direction = ParameterDirection.Output;
-
-                        cmd.Parameters.Add(new MySqlParameter("@ln_out", MySqlDbType.VarChar));
-                        cmd.Parameters["@ln_out"].Direction = ParameterDirection.Output;
-
-                        cmd.Parameters.Add(new MySqlParameter("@memtype_out", MySqlDbType.VarChar));
-                        cmd.Parameters["@memtype_out"].Direction = ParameterDirection.Output;
-
-                        cmd.Parameters.Add(new MySqlParameter("@loginrole_out", MySqlDbType.Int32));
-                        cmd.Parameters["@loginrole_out"].Direction = ParameterDirection.Output;
-
-                        cmd.Parameters.Add(new MySqlParameter("@caninvest_out", MySqlDbType.Int32));
-                        cmd.Parameters["@caninvest_out"].Direction = ParameterDirection.Output;
-
-                        cmd.Parameters.Add(new MySqlParameter("@canDoChildBenefit_out", MySqlDbType.Int32));
-                        cmd.Parameters["@canDoChildBenefit_out"].Direction = ParameterDirection.Output;
-
-                        cmd.ExecuteNonQuery();
-
-                        var id = cmd.Parameters["@id_out"].Value.ToString();
-                        if (!string.IsNullOrEmpty(id))
+                        if (record.Read())
                         {
                             return new BaseUserInfo
                             {
-                                AccountId = Convert.ToInt32(id),
+                                AccountId = Convert.ToInt32(record["member_id"].ToString()),
+                                AsscId = Convert.ToInt32(record["idass"].ToString()),
                                 EmailAddress = email,
-                                FirstName = cmd.Parameters["@fn_out"].Value.ToString(),
-                                LastName = cmd.Parameters["@ln_out"].Value.ToString(),
-                                MembershipType = cmd.Parameters["@memtype_out"].Value.ToString(),
-                                LoginRole = Convert.ToInt32(cmd.Parameters["@loginrole_out"].Value.ToString()),
-                                CanInvest = Convert.ToInt32(cmd.Parameters["@caninvest_out"].Value.ToString()) == 1,
-                                CanDoChildBenefit = Convert.ToInt32(cmd.Parameters["@canDoChildBenefit_out"].Value.ToString()) == 1,
+                                FirstName = record["first_name"].ToString(),
+                                LastName = record["last_name"].ToString(),
+                                MembershipType = record["membershiptype"].ToString(),
+                                LoginRole = Convert.ToInt32(record["loginrole"].ToString()),
+                                CanInvest = Convert.ToInt32(record["canInvest"].ToString()) == 1,
+                                CanDoChildBenefit = Convert.ToInt32(record["canDoChildBenefit"].ToString()) == 1,
                                 IsAdmin = false
                             };
                         }
-
                     }
                 }
 

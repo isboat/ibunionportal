@@ -18,6 +18,8 @@ namespace Portal.Web.Logics.AuthenticationModels
 
         public int Id { get; set; }
 
+        public int AsscId { get; set; }
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

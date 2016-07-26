@@ -18,7 +18,7 @@ namespace Portal.DataAccess.Repositories
             this.logProvider = logProvider;
         }
 
-        public BaseUserInfo Login(string email, string password)
+        public BaseUserInfo Login(string email, string password, int asscId)
         {
             try
             {
@@ -27,8 +27,8 @@ namespace Portal.DataAccess.Repositories
                 using (var connection = new MySqlConnection(this.ConString))
                 {
                     var query =
-                        string.Format("select * from administrators where email = '{0}' and password = '{1}' and deleted = 0 limit 1;",
-                            email, password);
+                        string.Format("select * from administrators where email = '{0}' and password = '{1}' and idassc = '{2}' and deleted = 0 limit 1;",
+                            email, password, asscId);
 
                     using (var cmd = new MySqlCommand(query, connection))
                     {
@@ -42,6 +42,7 @@ namespace Portal.DataAccess.Repositories
                             return new BaseUserInfo
                             {
                                 AccountId = Convert.ToInt32(record["id"].ToString()),
+                                AsscId = Convert.ToInt32(record["idass"].ToString()),
                                 EmailAddress = email,
                                 FirstName = record["firstname"].ToString(),
                                 LastName = record["lastname"] + "(Admin)",

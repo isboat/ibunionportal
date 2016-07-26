@@ -1,0 +1,23 @@
+﻿@model Frontpage.ViewModels.BaseResponse
+<br />
+<div class="container">
+    @{
+        if (Model.Success)
+        {
+            <div class="alert alert-success">
+                <p>
+                    <strong>Success!!! </strong> @Model.Message
+                </p>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger">
+                <p>
+                    <strong>Failed!</strong> @Model.Message
+                </p>
+            </div>
+        }
+    }
+</div>
+

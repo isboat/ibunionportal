@@ -6,7 +6,7 @@ namespace Portal.DataAccess.Interfaces
 {
     public interface IAccountRepository
     {
-        BaseUserInfo Login(string email, string password);
+        BaseUserInfo Login(string email, string password, int asscId);
 
         UserAccount GetAccountInfo(int accountid);
 

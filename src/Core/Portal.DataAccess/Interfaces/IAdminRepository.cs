@@ -6,7 +6,7 @@ namespace Portal.DataAccess.Interfaces
 {
     public interface IAdminRepository
     {
-        BaseUserInfo Login(string email, string password);
+        BaseUserInfo Login(string email, string password, int asscId);
 
         int CreateAdmin(CreateAdmin admin);
         List<BaseUserInfo> GetAllAdmins();

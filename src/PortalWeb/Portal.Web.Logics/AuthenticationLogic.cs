@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Web.Script.Serialization;
 using System.Web.Security;
 using Portal.Caching;
@@ -33,15 +34,18 @@ namespace Portal.Web.Logics
                 // return (LoginResponse)GlobalCachingProvider.Instance.GetItem(cacheKey);
             }
 
+            var asscId = Convert.ToInt32(ConfigurationManager.AppSettings["asscid"]);
+
             var userAccount = isAdmin ?
-                this.adminRepository.Login(username, password) :
-                this.accountRepository.Login(username, password);
+                this.adminRepository.Login(username, password, asscId) :
+                this.accountRepository.Login(username, password, asscId);
             
             if (userAccount != null)
             {
                 var serializeModel = new CustomPrincipalSerializeModel
                 {
                     Id = userAccount.AccountId,
+                    AsscId = userAccount.AsscId,
                     FirstName = userAccount.FirstName,
                     LastName = userAccount.LastName,
                     Email = userAccount.EmailAddress,

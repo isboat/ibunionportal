@@ -40,6 +40,7 @@ namespace Portal.Web.Controllers
         public ActionResult Demo(DemoRequest request)
         {
             var response = demoLogic.RequestDemo(request);
+            return null;
         }
 
         public ActionResult About()

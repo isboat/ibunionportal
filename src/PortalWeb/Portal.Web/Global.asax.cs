@@ -46,7 +46,8 @@ namespace Portal.Web
                         MembershipType = serializeModel.MembershipType,
                         CanInvest = serializeModel.CanInvest,
                         CanDoChildBenefit = serializeModel.CanDoChildBenefit,
-                        IsAdmin = serializeModel.IsAdmin
+                        IsAdmin = serializeModel.IsAdmin,
+                        AsscId = serializeModel.AsscId
                     };
 
                     HttpContext.Current.User = newUser;
