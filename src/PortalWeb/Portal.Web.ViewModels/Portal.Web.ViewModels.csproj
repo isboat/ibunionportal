@@ -105,6 +105,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Portal.DataObjects\Portal.DataObjects.csproj">
+      <Project>{51b8b4c8-627c-4e9c-b6bf-fc2c2438c247}</Project>
+      <Name>Portal.DataObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Portal.Web.Enums\Portal.Web.Enums.csproj">
       <Project>{5EF6322A-18A4-498B-A08D-72DC3075F540}</Project>
       <Name>Portal.Web.Enums</Name>

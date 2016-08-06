@@ -51,6 +51,7 @@
     <Compile Include="Admin\AdminUserInfo.cs" />
     <Compile Include="Association.cs" />
     <Compile Include="Demo.cs" />
+    <Compile Include="MembershipType.cs" />
     <Compile Include="PendingBase.cs" />
     <Compile Include="PendingBenefitRequest.cs" />
     <Compile Include="PendingLoan.cs" />

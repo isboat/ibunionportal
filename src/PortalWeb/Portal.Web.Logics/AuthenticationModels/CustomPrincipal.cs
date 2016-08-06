@@ -1,5 +1,6 @@
 ﻿using System.Security.Principal;
 using Portal.Web.Interfaces;
+using Portal.DataObjects;
 
 namespace Portal.Web.Logics.AuthenticationModels
 {
@@ -28,7 +29,7 @@ namespace Portal.Web.Logics.AuthenticationModels
 
         public int UserLoginRole { get; set; }
 
-        public string MembershipType { get; set; }
+        public MembershipType MembershipType { get; set; }
 
         public bool CanInvest { get; set; }
 

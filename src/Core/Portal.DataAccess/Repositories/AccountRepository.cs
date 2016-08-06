@@ -47,7 +47,7 @@ namespace Portal.DataAccess.Repositories
                                 EmailAddress = email,
                                 FirstName = record["first_name"].ToString(),
                                 LastName = record["last_name"].ToString(),
-                                MembershipType = record["membershiptype"].ToString(),
+                                MembershipType = GetMembershipType(record["membershiptype"].ToString()),
                                 LoginRole = Convert.ToInt32(record["loginrole"].ToString()),
                                 CanInvest = Convert.ToInt32(record["canInvest"].ToString()) == 1,
                                 CanDoChildBenefit = Convert.ToInt32(record["canDoChildBenefit"].ToString()) == 1,
@@ -63,6 +63,21 @@ namespace Portal.DataAccess.Repositories
             {
                 this.logProvider.Error(string.Format("AccountRepository, Login email:{0}", email), ex);
                 throw;
+            }
+        }
+
+        private MembershipType GetMembershipType(string mtype)
+        {
+            switch (mtype)
+            {
+                case "Individual":
+                    return MembershipType.Individual;
+
+                case "CommunityBased":
+                    return MembershipType.CommunityBased;
+
+                default:
+                    throw new EntryPointNotFoundException("MembershipType");
             }
         }
 
@@ -97,7 +112,7 @@ namespace Portal.DataAccess.Repositories
                                 Biography = record["biography"].ToString(),
                                 Telephone = record["phone_number"].ToString(),
                                 EmergencyTel = record["emergency_contact_number"].ToString(),
-                                MembershipType = record["membershiptype"].ToString(),
+                                MembershipType = GetMembershipType(record["membershiptype"].ToString()),
                                 LoginRole = Convert.ToInt32(record["loginrole"].ToString()),
                                 ProfilePicUrl = record["picurl"].ToString(),
                                 CanInvest = Convert.ToInt32(record["canInvest"].ToString()) == 1,
@@ -147,7 +162,7 @@ namespace Portal.DataAccess.Repositories
                                 Biography = record["biography"].ToString(),
                                 Telephone = record["phone_number"].ToString(),
                                 EmergencyTel = record["emergency_contact_number"].ToString(),
-                                MembershipType = record["membershiptype"].ToString()
+                                MembershipType = GetMembershipType(record["membershiptype"].ToString())
                             });
                         }
 

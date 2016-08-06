@@ -6,6 +6,7 @@ using Portal.Common.Logging;
 using Portal.DataAccess.Interfaces;
 using Portal.DataObjects.Accounts;
 using Portal.DataObjects.Admin;
+using Portal.DataObjects;
 
 namespace Portal.DataAccess.Repositories
 {
@@ -27,7 +28,7 @@ namespace Portal.DataAccess.Repositories
                 using (var connection = new MySqlConnection(this.ConString))
                 {
                     var query =
-                        string.Format("select * from administrators where email = '{0}' and password = '{1}' and idassc = '{2}' and deleted = 0 limit 1;",
+                        string.Format("select * from administrators where email = '{0}' and password = '{1}' and idass = '{2}' and deleted = 0 limit 1;",
                             email, password, asscId);
 
                     using (var cmd = new MySqlCommand(query, connection))
@@ -46,7 +47,7 @@ namespace Portal.DataAccess.Repositories
                                 EmailAddress = email,
                                 FirstName = record["firstname"].ToString(),
                                 LastName = record["lastname"] + "(Admin)",
-                                MembershipType = "Administrator",
+                                MembershipType = MembershipType.Administrator,
                                 LoginRole = Convert.ToInt32(record["role"].ToString()),
                                 CanInvest = false,
                                 IsAdmin = true
