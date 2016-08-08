@@ -1,5 +1,4 @@
-﻿using Portal.DataObjects;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace Portal.Web.ViewModels.Account
 {
@@ -34,7 +33,7 @@ namespace Portal.Web.ViewModels.Account
         public string EmergencyTel { get; set; }
         
         [DisplayName("Membership Type ")]
-        public MembershipType MembershipType { get; set; }
+        public string MembershipType { get; set; }
 
         [DisplayName("Login Level")]
         public int UserLoginRole { get; set; }

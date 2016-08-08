@@ -14,7 +14,6 @@ using Portal.Web.ViewModels.MemberDues;
 using Portal.Web.ViewModels.MemberInvmt;
 using Portal.Web.ViewModels.Registration;
 using Wams.Web.Controllers;
-using Portal.DataObjects;
 
 namespace Portal.Web.Controllers
 {
@@ -624,7 +623,7 @@ namespace Portal.Web.Controllers
 
                 if (user == null) return this.RedirectToAction("ViewMyProfile", new { memberId = this.User.Id });
 
-                var model = Tuple.Create<MembershipType>(user.MembershipType);
+                var model = Tuple.Create<string>(user.MembershipType);
                 return View("ViewMembershipType", model);
             }
             catch (Exception ex)

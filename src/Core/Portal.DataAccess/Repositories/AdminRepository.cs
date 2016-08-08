@@ -6,7 +6,6 @@ using Portal.Common.Logging;
 using Portal.DataAccess.Interfaces;
 using Portal.DataObjects.Accounts;
 using Portal.DataObjects.Admin;
-using Portal.DataObjects;
 
 namespace Portal.DataAccess.Repositories
 {
@@ -47,7 +46,7 @@ namespace Portal.DataAccess.Repositories
                                 EmailAddress = email,
                                 FirstName = record["firstname"].ToString(),
                                 LastName = record["lastname"] + "(Admin)",
-                                MembershipType = MembershipType.Administrator,
+                                MembershipType = "Administrator",
                                 LoginRole = Convert.ToInt32(record["role"].ToString()),
                                 CanInvest = false,
                                 IsAdmin = true

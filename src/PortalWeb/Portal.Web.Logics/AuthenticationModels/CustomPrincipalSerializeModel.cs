@@ -1,6 +1,4 @@
-﻿
-using Portal.DataObjects;
-namespace Portal.Web.Logics.AuthenticationModels
+﻿namespace Portal.Web.Logics.AuthenticationModels
 {
     public class CustomPrincipalSerializeModel
     {
@@ -10,7 +8,7 @@ namespace Portal.Web.Logics.AuthenticationModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int UserLoginRole { get; set; }
-        public MembershipType MembershipType { get; set; }
+        public string MembershipType { get; set; }
         public bool CanInvest { get; set; }
         public bool CanDoChildBenefit { get; set; }
         public bool IsAdmin { get; set; }

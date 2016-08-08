@@ -33,7 +33,7 @@
 
         public string LastName { get; set; }
 
-        public MembershipType MembershipType { get; set; }
+        public string MembershipType { get; set; }
 
         public string ProfilePicUrl { get; set; }
 

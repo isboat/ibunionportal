@@ -1,5 +1,4 @@
-﻿using Portal.DataObjects;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Portal.Web.ViewModels.MemberDues
@@ -10,7 +9,7 @@ namespace Portal.Web.ViewModels.MemberDues
 
         public string MemberName { get; set; }
 
-        public MembershipType MembershipType { get; set; }
+        public string MembershipType { get; set; }
 
         public string Address { get; set; }
 
