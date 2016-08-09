@@ -18,9 +18,9 @@ namespace Portal.Web.Controllers
             return View();
         }
 
-        public ActionResult GetTotalMonthlyDues(int year)
+        public ActionResult GetTotalMonthlyDues(int year, string mType)
         {
-            var data = this.accounting.TotalMonthlyDues(year);
+            var data = this.accounting.TotalMonthlyDues(year, mType);
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
@@ -31,9 +31,9 @@ namespace Portal.Web.Controllers
             return View();
         }
 
-        public ActionResult GetInvestmentData(int year)
+        public ActionResult GetInvestmentData(int year, string mType)
         {
-            var result = this.accounting.InvestmentData(year);
+            var result = this.accounting.InvestmentData(year, mType);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 

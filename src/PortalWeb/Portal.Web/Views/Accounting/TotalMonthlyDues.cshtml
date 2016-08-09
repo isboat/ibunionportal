@@ -5,26 +5,34 @@
 }
 <h3>Member Dues Analysis</h3>
 <div style="display: inline-block">
-    <select id="displayYear" class="form-control" style="display: inline-block; float: left; width: 130px">
+    <select id="displayYear" class="form-control" style="display: inline-block; float: left; width: 130px; margin-right: 15px;">
         <option selected="selected" value="@year">@year</option>
         <option value="@lastYear">@lastYear</option>
     </select>
+
+    <select id="mType" class="form-control" style="display: inline-block; float: left; width: 175px">
+        <option selected="selected" value="Individual">Individual</option>
+        <option value="Association">Association</option>
+        <option value="CommunityBased">Community Based</option>
+    </select>
+
 </div><br/>
 
+
 <div class="panel panel-success" style="width: 30%; display: inline-block">
-    <div class="panel-heading">Total Dues paid by members</div>
+    <div class="panel-heading">Total Dues paid by (<strong><span class="selectedType"></span> membership</strong>) members in <strong class="selectedYear"></strong></div>
     <div class="panel-body">
         <h4 id="totalAmount">loading...</h4>
     </div>
 </div>
 <div class="panel panel-info" style="width: 30%; display: inline-block">
-    <div class="panel-heading">No. of members who have paid every month</div>
+    <div class="panel-heading">Number of (<strong><span class="selectedType"></span> membership</strong>) members who have paid every month in <strong class="selectedYear"></strong></div>
     <div class="panel-body">
         <h4 id="usersWithFullDues">loading...</h4>
     </div>
 </div>
 <div class="panel panel-danger" style="width: 30%; display: inline-block">
-    <div class="panel-heading">No. of members with no dues at all</div>
+    <div class="panel-heading">Number of (<strong><span class="selectedType"></span> membership</strong>) members with no dues at all,  in <strong class="selectedYear"></strong></div>
     <div class="panel-body">
         <h4 id="usersWithNoDues">loading...</h4>
     </div>
@@ -41,10 +49,19 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        wams.accounting.showTotalDuesGraph($('#displayYear').val());
+        $('.selectedType').text($('#mType option:selected').text());
+        $('.selectedYear').text($('#displayYear option:selected').text());
+        wams.accounting.showTotalDuesGraph($('#displayYear').val(), $('#mType').val());
 
-        $('#displayYear').on("change", function () {
-            wams.accounting.showTotalDuesGraph($(this).val());
+
+        $('#displayYear, #mType').on("change", function () {
+            var year = $('#displayYear').val();
+            var mType = $('#mType').val();
+
+            $('.selectedType').text($('#mType option:selected').text());
+            $('.selectedYear').text($('#displayYear option:selected').text());
+
+            wams.accounting.showTotalDuesGraph(year, mType);
         });
     });
 </script>

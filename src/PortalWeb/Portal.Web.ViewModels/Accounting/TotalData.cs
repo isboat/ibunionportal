@@ -18,6 +18,10 @@ namespace Portal.Web.ViewModels.Accounting
 
         public IEnumerable<MemberData> TopTenHighestMembers { get; set; }
 
+        public IEnumerable<MemberData> TopTenMTypeMembers { get; set; }
+
+        public int MTypeMembersCount { get; set; }
+
         public decimal HighestPaidAmount { get; set; }
     }
 }

@@ -14,12 +14,12 @@
     }
 
     wams.accounting = {
-        showTotalDuesGraph: function (year) {
+        showTotalDuesGraph: function (year, mType) {
 
             wams.ui.showBusy();
 
             $.ajax({
-                url: wams.config.totalMonthlyDuesUrl + "?year=" + year,
+                url: wams.config.totalMonthlyDuesUrl + "?year=" + year + "&mType=" + mType,
                 success: function(data) {
                     
                     $("#totalAmount").html("&#x20b5; " + data.TotalAmount + " ghc");
@@ -51,22 +51,23 @@
             });
         },
 
-        showInvestmentData: function (year) {
+        showInvestmentData: function (year, mType) {
             wams.ui.showBusy();
 
             $.ajax({
-                url: wams.config.investmentDataUrl + "?year=" + year,
+                url: wams.config.investmentDataUrl + "?year=" + year + "&mType=" + mType,
                 success: function (data) {
                     
                     $("#totalAmount").html("&#x20b5; " + data.TotalAmount + " ghc");
-                    $("#usersWith").html(data.TotalUsersWith);
-                    $("#usersWithout").html(data.TotalUsersWithout);
+                    $("#usersWith").html(data.TotalUsersWith + " out of " + data.MTypeMembersCount);
+                    $("#usersWithout").html(data.TotalUsersWithout + " out of " + data.MTypeMembersCount);
                     $("#topTen").html(displayTopTen(data.TopTenHighestMembers));
+                    $("#topMTypeTen").html(displayTopTen(data.TopTenMTypeMembers));
 
                     wams.ui.hideBusy();
                 },
                 error: function (d) {
-                    alert("Error occured getting total investment data")
+                    alert("Error occured getting total investment data");
                     wams.ui.hideBusy();
                 }
             });

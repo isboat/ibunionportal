@@ -162,6 +162,51 @@ namespace Portal.DataAccess.Repositories
             }
         }
 
+        public List<UserAccount> GetMembershipUsers(string mType)
+        {
+            this.logProvider.Info("AccountRepository, GetMembershipUsers mType=" + mType);
+            try
+            {
+                using (var connection = new MySqlConnection(this.ConString))
+                {
+                    var query = string.Format("select * from member_information where deleted = 0 AND loginrole < 2 AND membershiptype = '{0}'", mType);
+
+                    using (var cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        connection.Open();
+
+                        var record = cmd.ExecuteReader();
+
+                        var records = new List<UserAccount>();
+                        while (record.Read())
+                        {
+                            records.Add(new UserAccount
+                            {
+                                AccountId = Convert.ToInt32(record["member_id"].ToString()),
+                                DateOfBirth = record["date_of_birth"].ToString(),
+                                EmailAddress = record["email_address"].ToString(),
+                                FirstName = record["first_name"].ToString(),
+                                LastName = record["last_name"].ToString(),
+                                Gender = record["gender"].ToString(),
+                                Biography = record["biography"].ToString(),
+                                Telephone = record["phone_number"].ToString(),
+                                EmergencyTel = record["emergency_contact_number"].ToString(),
+                                MembershipType = record["membershiptype"].ToString()
+                            });
+                        }
+
+                        return records;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                this.logProvider.Error("AccountRepository, GetMembershipUsers mType=" + mType, ex);
+                throw;
+            }
+        }
+
         public bool SetPasscode(string accountkey, string passcodeKey)
         {
             throw new NotImplementedException();

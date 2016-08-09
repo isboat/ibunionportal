@@ -4,8 +4,8 @@ namespace Portal.Web.Interfaces
 {
     public interface IAccounting
     {
-        TotalData TotalMonthlyDues(int year);
+        TotalData TotalMonthlyDues(int year, string mType);
 
-        TotalData InvestmentData(int year);
+        TotalData InvestmentData(int year, string mType);
     }
 }

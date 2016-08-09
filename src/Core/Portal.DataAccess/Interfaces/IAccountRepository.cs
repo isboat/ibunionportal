@@ -34,6 +34,8 @@ namespace Portal.DataAccess.Interfaces
 
         List<UserAccount> GetAllUserAccounts();
 
+        List<UserAccount> GetMembershipUsers(string mType);
+
         int DeleteMember(int id);
 
         int SetMemberPassword(int id, string newPassword);

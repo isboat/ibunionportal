@@ -30,38 +30,47 @@ namespace Portal.Web.Logics
 
         #endregion
 
-        public TotalData TotalMonthlyDues(int year)
+        public TotalData TotalMonthlyDues(int year, string mType)
         {
             var annualDues = this.accountingRepository.GetAll_AnnualDues(year);
-            var allMembers = this.accountRepository.GetAllUserAccounts();
+            var allMembers = this.accountRepository.GetMembershipUsers(mType);
             var months = GetMonths(year);
 
             var total = new TotalData
             {
-                AnnualChartData = AnnualDues(annualDues, year),
-                TotalAmount = annualDues.Sum(x => x.Amount),
+                AnnualChartData = AnnualDues(annualDues, year, allMembers),
+                TotalAmount = GetTotalAmount(annualDues, allMembers),
                 TotalUsersWith = allMembers.FindAll(x => months.TrueForAll(m => annualDues.Exists(d => d.DuesMonth == m && x.AccountId == d.MemberId))).Count,
                 TotalUsersWithout = allMembers.FindAll(x => !annualDues.Exists(m => m.MemberId == x.AccountId)).Count,
-                AnnualMonthlyPaidUser = AnnualMonthlyPaidUser(annualDues, year)
+                AnnualMonthlyPaidUser = AnnualMonthlyPaidUser(annualDues, year, allMembers)
             };
             
             return total;
         }
 
-        public TotalData InvestmentData(int year)
+        public TotalData InvestmentData(int year, string mType)
         {
             var investments = this.accountingRepository.GetAll_Investments(year);
-            var allMembers = this.accountRepository.GetAllUserAccounts();
+            var allMembers = this.accountRepository.GetMembershipUsers(mType);
 
             var total = new TotalData 
             {
+                MTypeMembersCount = allMembers.Count,
                 TotalAmount = investments.Sum(x => x.Amount),
-                TotalUsersWith =  investments.GroupBy(x => x.MemberId).Select(g => g.First()).Count(),
+                TotalUsersWith =  GetTotalMTypeUsersWith(investments, allMembers),
                 TopTenHighestMembers = GetTopTenHighestMembers(investments),
+                TopTenMTypeMembers = GetTopTenHighestMTypeMembers(investments, allMembers),
                 TotalUsersWithout = allMembers.Where(x => !investments.Exists(e => e.MemberId == x.AccountId)).Count()
             };
 
             return total;
+        }
+
+        private decimal GetTotalAmount(List<MemberDues> annualDues, List<UserAccount> members)
+        {
+            var membersDues = annualDues.FindAll(x => members.Exists(m => m.AccountId == x.MemberId));
+            
+            return membersDues.Sum(x => x.Amount);
         }
 
         private IEnumerable<MemberData> GetTopTenHighestMembers(List<MemberInvmt> investments)
@@ -76,6 +85,38 @@ namespace Portal.Web.Logics
                     Name = g.First().MemberName,
                     Amount = g.Sum(s => s.Amount)
                 });
+            }
+
+            return users.OrderByDescending(x => x.Amount).Take(10);
+        }
+
+        private int GetTotalMTypeUsersWith(List<MemberInvmt> investments, List<UserAccount> members)
+        {
+            var indInvts = investments.GroupBy(x => x.MemberId);
+
+            var count = indInvts.Count(indInvt => members.Exists(m => m.AccountId == indInvt.First().MemberId));
+
+            return count;
+        }
+
+        private IEnumerable<MemberData> GetTopTenHighestMTypeMembers(List<MemberInvmt> investments, List<UserAccount> members)
+        {
+            var users = new List<MemberData>();
+            var individualInvestments = investments.GroupBy(x => x.MemberId);
+            
+            foreach (var individualInvestment in individualInvestments)
+            {
+                var firstInv = individualInvestment.First();
+
+                if (members.Exists(m => firstInv.MemberId == m.AccountId))
+                {
+                    users.Add(new MemberData
+                    {
+                        MemberId = firstInv.MemberId,
+                        Name = firstInv.MemberName,
+                        Amount = individualInvestment.Sum(s => s.Amount)
+                    });
+                }
             }
 
             return users.OrderByDescending(x => x.Amount).Take(10);
@@ -102,14 +143,14 @@ namespace Portal.Web.Logics
             return user;
         }
 
-        private List<KeyValuePair<string, decimal>> AnnualMonthlyPaidUser(List<MemberDues> dues, int year)
+        private List<KeyValuePair<string, decimal>> AnnualMonthlyPaidUser(List<MemberDues> dues, int year, List<UserAccount> members)
         {
             var months = new List<KeyValuePair<string, decimal>>();
             var yearMonths = GetMonths(year);
             
             foreach (var mon in yearMonths)
             {
-                var count = dues.FindAll(due => due.DuesYear == year && due.DuesMonth == mon).Count;
+                var count = dues.FindAll(due => due.DuesYear == year && due.DuesMonth == mon && members.Exists(m => m.AccountId == due.MemberId)).Count;
                 months.Add(new KeyValuePair<string, decimal>(mon, count));
             }
 
@@ -117,7 +158,7 @@ namespace Portal.Web.Logics
 
         }
 
-        private List<KeyValuePair<string, decimal>> AnnualDues(List<MemberDues> dues, int year)
+        private List<KeyValuePair<string, decimal>> AnnualDues(List<MemberDues> dues, int year, List<UserAccount> members)
         {
             var months = new List<KeyValuePair<string, decimal>>();
 
@@ -125,7 +166,7 @@ namespace Portal.Web.Logics
             {
                 var month = new DateTime(year, i, 1).ToString("MMM");
 
-                var dateAmount = dues.Where(due => due.DuesYear == year && due.DuesMonth == month).Sum(due => due.Amount);
+                var dateAmount = dues.Where(due => due.DuesYear == year && due.DuesMonth == month && members.Exists(m => due.MemberId == m.AccountId)).Sum(due => due.Amount);
                 months.Add(new KeyValuePair<string, decimal>(month, dateAmount));
             }
 
