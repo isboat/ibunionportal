@@ -22,8 +22,19 @@ namespace Frontpage.Logics
 
         public BaseResponse RequestDemo(DemoRequest request)
         {
-            var result = this.demoRepository.SaveDemo(new Demo());
-            return new BaseResponse { Success = true };
+            var result = this.demoRepository.SaveDemo(new Demo
+            {
+                AsscAddr = request.AsscAddr,
+                AsscCountry = request.AsscCountry,
+                AsscName = request.AsscName,
+                Completed = false,
+                Email = request.Email,
+                Firstname = request.Firstname,
+                Lastname = request.Lastname,
+                Schedule = false,
+                Telephone = request.Telephone
+            });
+            return new BaseResponse { Success = true, Message = "Thanks for requesting for a demo, a member of staff will get in touch with you."};
         }
     }
 }

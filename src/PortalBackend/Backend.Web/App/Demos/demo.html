@@ -50,21 +50,21 @@
     <div class="form-group">
         <label class="control-label col-md-4" for="completed">Demo completed ?</label>
         <div class="col-md-8">
-            <input ng-model="vm.demo.Completed" class="form-control text-box single-line" id="completed" type="text" ng-disabled="vm.viewonly">
+            <input ng-model="vm.demo.Completed" ng-checked="vm.demo.Completed" id="completed" type="checkbox" ng-disabled="vm.viewonly">
         </div>
     </div>
 
     <div class="form-group">
         <label class="control-label col-md-4" for="completed">Demo completed date</label>
         <div class="col-md-8">
-            <input ng-model="vm.demo.CompletedDate" class="form-control text-box single-line" id="completed" type="text" ng-disabled="vm.viewonly">
+            <input ng-model="vm.demo.CompletedDate" class="form-control text-box single-line" id="completeddate" type="text" ng-disabled="vm.viewonly">
         </div>
     </div>
 
     <div class="form-group">
         <label class="control-label col-md-4" for="schedule">Demo schedule ?</label>
         <div class="col-md-8">
-            <input ng-model="vm.demo.Schedule" class="form-control text-box single-line" id="schedule" type="text" ng-disabled="vm.viewonly">
+            <input ng-model="vm.demo.Schedule" ng-checked="vm.demo.Schedule" id="schedule" type="checkbox" ng-disabled="vm.viewonly">
         </div>
     </div>
 

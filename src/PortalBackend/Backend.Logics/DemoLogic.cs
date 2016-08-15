@@ -31,49 +31,27 @@ namespace Backend.Logics
         public List<DemoRequestViewModel> GetCompletedDemos()
         {
             var demos = demoRepository.GetCompletedDemos();
-            return new List<DemoRequestViewModel>
+            return demos.Select(d => new DemoRequestViewModel
             {
-                new DemoRequestViewModel
-            {
-                Id = 1,
-                AsscAddr = "AsscAddr",
-                AsscCountry = "d.AsscCountry",
-                AsscName = "d.AsscName Completed",
-                Email = "d.Email"
-            }
-            };
-            //return demos.Select(d => new DemoRequestViewModel
-            //{
-            //    Id = d.Id,
-            //    AsscAddr = d.AsscAddr,
-            //    AsscCountry = d.AsscCountry,
-            //    AsscName = d.AsscName,
-            //    Email = d.Email
-            //}).ToList();
+                Id = d.Id,
+                AsscAddr = d.AsscAddr,
+                AsscCountry = d.AsscCountry,
+                AsscName = d.AsscName,
+                Email = d.Email
+            }).ToList();
         }
 
         public List<DemoRequestViewModel> GetScheduledDemos()
         {
             var demos = demoRepository.GetScheduledDemos();
-            return new List<DemoRequestViewModel>
+            return demos.Select(d => new DemoRequestViewModel
             {
-                new DemoRequestViewModel
-            {
-                Id = 1,
-                AsscAddr = "AsscAddr",
-                AsscCountry = "d.AsscCountry",
-                AsscName = "d.AsscName schedule demo",
-                Email = "d.Email"
-            }
-            };
-            //return demos.Select(d => new DemoRequestViewModel
-            //{
-            //    Id = d.Id,
-            //    AsscAddr = d.AsscAddr,
-            //    AsscCountry = d.AsscCountry,
-            //    AsscName = d.AsscName,
-            //    Email = d.Email
-            //}).ToList();
+                Id = d.Id,
+                AsscAddr = d.AsscAddr,
+                AsscCountry = d.AsscCountry,
+                AsscName = d.AsscName,
+                Email = d.Email
+            }).ToList();
         }
 
         public DemoRequestViewModel GetDemo(int id)

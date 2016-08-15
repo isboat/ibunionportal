@@ -120,7 +120,7 @@ namespace Portal.DataAccess.Repositories
             this.logProvider.Info("DemoRepository, SaveDemo id=" + demo.Id);
             try
             {
-                string query = "";
+                var query = "";
 
                 if (demo.Id > 0)
                 {
@@ -181,7 +181,7 @@ namespace Portal.DataAccess.Repositories
                             Email = record["email"].ToString(),
                             Schedule = record["scheduled"].ToString() == "1",
                             Completed = record["completed"].ToString() == "1",
-                            ScheduleDate = record["scheduledate"].ToString(),
+                            ScheduleDate = record["scheduleddate"].ToString(),
                             CompletionDate= record["completeddate"].ToString()
                         });
                     }

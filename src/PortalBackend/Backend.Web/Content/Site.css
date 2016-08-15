@@ -75,3 +75,8 @@ textarea {
     opacity: 0.4;
     z-index: 1000000;
 }
+
+input[type=checkbox], input[type=radio] {
+    position: relative;
+    top: 5px;
+}

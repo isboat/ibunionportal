@@ -33,8 +33,8 @@ namespace Backend.Logics
             }
 
             var userAccount = isAdmin ?
-                this.adminRepository.Login(username, password) :
-                this.accountRepository.Login(username, password);
+                this.adminRepository.Login(username, password, 1) :
+                this.accountRepository.Login(username, password, 1);
             
             if (userAccount != null)
             {
