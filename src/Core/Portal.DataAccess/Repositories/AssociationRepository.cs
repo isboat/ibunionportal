@@ -43,7 +43,13 @@ namespace Portal.DataAccess.Repositories
                             {
                                 Id = Convert.ToInt32(record["idass"].ToString()),
                                 Name = record["name"].ToString(),
-                                Address = record["address"].ToString()
+                                Address = record["address"].ToString(),
+                                Country = record["country"].ToString(),
+                                Email = record["email"].ToString(),
+                                JoinDate = record["joined_date"].ToString(),
+                                Password = record["password"].ToString(),
+                                PaymentType = record["paymenttype"].ToString(),
+                                Telephone = record["telephone"].ToString()
                             });
                         }
 
@@ -80,7 +86,13 @@ namespace Portal.DataAccess.Repositories
                             {
                                 Id = Convert.ToInt32(record["idass"].ToString()),
                                 Name = record["name"].ToString(),
-                                Address = record["address"].ToString()
+                                Address = record["address"].ToString(),
+                                Country = record["country"].ToString(),
+                                Email = record["email"].ToString(),
+                                JoinDate = record["joined_date"].ToString(),
+                                Password = record["password"].ToString(),
+                                PaymentType = record["paymenttype"].ToString(),
+                                Telephone = record["telephone"].ToString()
                             };
                         }
 
@@ -91,6 +103,48 @@ namespace Portal.DataAccess.Repositories
             catch (Exception ex)
             {
                 this.logProvider.Error("AssociationRepository, GetAssociation id = " + id, ex);
+                throw;
+            }
+        }
+
+        public int SaveAssociation(Association association)
+        {
+            this.logProvider.Info("AssociationRepository, SaveAssociation id=" + (association.Id > 0 ? association.Id.ToString() : "no id (adding assoc)"));
+            try
+            {
+                var query = "";
+
+                if (association.Id > 0)
+                {
+                    query = string.Format(
+                        "update associations set name = '{0}', joined_date = '{1}', address = '{2}', telephone = '{3}', country = '{4}', " +
+                        "password = '{5}', paymenttype = '{6}', email = {7} " +
+                        "where idass = {11};",
+                        association.Name, association.JoinDate, association.Address, association.Telephone, association.Country, association.Password,
+                        association.PaymentType, association.Email
+                        demo.Schedule ? 1 : 0, demo.Completed ? 1 : 0, demo.ScheduleDate, demo.CompletionDate, demo.Id);
+                }
+                else
+                {
+                    query = string.Format(
+                        "insert into demorequest(asscname, firstname, lastname, telephone, asscaddr, country, email, scheduled, completed) values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', 0, 0)",
+                        demo.AsscName, demo.Firstname, demo.Lastname, demo.Telephone, demo.AsscAddr, demo.AsscCountry, demo.Email);
+                }
+
+                using (var connection = new MySqlConnection(this.ConString))
+                {
+                    using (var cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        connection.Open();
+
+                        return cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                this.logProvider.Error("AssociationRepository, SaveAssociation id=" + (association.Id > 0 ? association.Id.ToString() : "no id (adding assoc)"), ex);
                 throw;
             }
         }

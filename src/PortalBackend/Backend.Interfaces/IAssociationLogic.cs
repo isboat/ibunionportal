@@ -12,5 +12,7 @@ namespace Backend.Interfaces
         List<AssociationViewModel> GetAllAssociations();
 
         AssociationViewModel GetAssociation(int id);
+
+        BaseResponse SaveAssociation(AssociationViewModel viewModel);
     }
 }

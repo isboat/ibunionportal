@@ -36,6 +36,12 @@ namespace Backend.Web.Controllers
         }
 
         [HttpPost]
+        public BaseResponse SaveAssociation(AssociationViewModel data)
+        {
+            return data == null ? new BaseResponse() : this.demoLogic.SaveDemo(data);
+        }
+
+        [HttpPost]
         public BaseResponse AddPayment(AddPaymentRequest data)
         {
             return data == null ? new BaseResponse() : this.paymentsLogic.AddPayment(data);

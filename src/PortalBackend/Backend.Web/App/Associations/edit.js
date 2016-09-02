@@ -12,6 +12,7 @@
         vm.isNew = isNew;
         vm.assc = {};
         vm.selectedassocid;
+        vm.saveAssociation = saveAssociation;
         vm.demoreqs = [];
         
         activate();
@@ -51,6 +52,10 @@
                     }
                 });
             }
+        }
+
+        function saveAssociation() {
+            
         }
     }
 })();

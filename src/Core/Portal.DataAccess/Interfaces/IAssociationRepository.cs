@@ -12,5 +12,7 @@ namespace Portal.DataAccess.Interfaces
         List<Association> GetAllAssociations();
 
         Association GetAssociation(int id);
+        
+        int SaveAssociation(Association association);
     }
 }

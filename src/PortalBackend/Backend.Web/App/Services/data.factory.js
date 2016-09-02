@@ -9,6 +9,7 @@
         var service = {
             getData: getData,
             saveDemo: saveDemo,
+            saveAssociation: saveAssociation,
             addPayment: addPayment,
             subscribeAssoc: subscribeAssoc
         };
@@ -37,6 +38,10 @@
 
         function saveDemo(demo) {
             return postData(demo, { dataUrl: config.appSettings.saveDemoUrl });
+        }
+
+        function saveAssociation(association) {
+            return postData()(association, { dataUrl: config.appSettings.saveAssociationUrl });
         }
 
         function addPayment(month, year, amount, assocId) {

@@ -7,6 +7,7 @@ using Backend.Interfaces;
 using Backend.ViewModels;
 using Backend.ViewModels.Demo;
 using Portal.DataAccess.Interfaces;
+using Portal.DataObjects;
 
 namespace Backend.Logics
 {
@@ -61,6 +62,15 @@ namespace Backend.Logics
                     Name = assoc.Name,
                     IsActive = subscriptions.Any(x => x.IsActive)
                 };
+        }
+
+        public BaseResponse SaveAssociation(AssociationViewModel viewModel)
+        {
+            var response = new BaseResponse();
+
+            var result = associationRepository.SaveAssociation(new Association());
+
+            return response;
         }
     }
 }

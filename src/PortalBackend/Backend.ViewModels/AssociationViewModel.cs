@@ -18,6 +18,8 @@ namespace Backend.ViewModels
 
         public string Telephone { get; set; }
 
+        public string Email { get; set; }
+
         public string JoinDate { get; set; }
 
         public string Password { get; set; }
