@@ -5,23 +5,52 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Portal.DataAccess.Interfaces;
+using Portal.DataObjects;
 
 namespace Backend.Logics
 {
     public class SubscriptionLogic : ISubscriptionLogic
     {
+        private readonly ISubscriptionRepository subscriptionRepository;
+
+        public SubscriptionLogic(ISubscriptionRepository subscriptionRepository)
+        {
+            this.subscriptionRepository = subscriptionRepository;
+        }
+
         public List<SubscriptionViewModel> GetSubscriptions(int assocId)
         {
-            return new List<SubscriptionViewModel>
+            var subs = this.subscriptionRepository.GetSubscriptions(assocId);
+            return subs.Select(x => new SubscriptionViewModel
             {
-                new SubscriptionViewModel { AssocId = assocId, EndDate = "01/09/2017", StartDate = "sept 2015"},
-                new SubscriptionViewModel { AssocId = assocId, EndDate = "01/09/2015", StartDate = "sept 2014"}
-            };
+                Id = x.Id,
+                AssocId = x.AssocId,
+                EndDate = x.EndDate,
+                StartDate = x.StartDate
+            }).ToList();
         }
 
         public BaseResponse SubscribeAssoc(SubscribeAssocRequest data)
         {
-            return new BaseResponse {Success = true};
+            var response = new BaseResponse();
+
+            var result =
+                this.subscriptionRepository.UpdateSubscription(new Subscription
+                {
+                    AssocId = data.AssocId,
+                    EndDate = data.End,
+                    StartDate = data.Start
+                });
+
+            response.Success = result == 1;
+
+            if (!response.Success)
+            {
+                response.Message = "Error occurred";
+            }
+
+            return response;
         }
     }
 }

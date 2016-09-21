@@ -13,68 +13,69 @@
         </div>
     
 </div>
-
-<div class="form-horizontal">
-    <div class="form-group">
-        <label class="control-label col-md-2" for="Name">Name</label>
-        <div class="col-md-10">
-            <input ng-model="vm.assc.name" class="form-control text-box single-line" id="Name" type="text">
-        </div>
+<form name="editAsscForm">
+    <div class="alert alert-success" ng-show="vm.message">
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <span>{{vm.message}}</span>
     </div>
-
-    <div class="form-group">
-        <label class="control-label col-md-2" for="JoinDate">Join date</label>
-        <div class="col-md-10">
-            <input ng-model="vm.assc.joinDate" class="form-control text-box single-line" id="JoinDate" type="text">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Name">Name</label>
+            <div class="col-md-10">
+                <input ng-model="vm.assc.name" ng-required="true" class="form-control text-box single-line" id="Name" type="text">
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label class="control-label col-md-2" for="Address">Address/Location</label>
-        <div class="col-md-10">
-            <input ng-model="vm.assc.address" class="form-control text-box single-line" id="Address" type="text">
+        <div class="form-group">
+            <label class="control-label col-md-2" for="JoinDate">Join date</label>
+            <div class="col-md-10">
+                <input ng-model="vm.assc.joinDate" ng-required="true" class="form-control text-box single-line" id="JoinDate" type="text">
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label class="control-label col-md-2" for="Country">Country</label>
-        <div class="col-md-10">
-            <input ng-model="vm.assc.country" class="form-control text-box single-line" id="Country" type="text">
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Address">Address/Location</label>
+            <div class="col-md-10">
+                <input ng-model="vm.assc.address" ng-required="true" class="form-control text-box single-line" id="Address" type="text">
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label class="control-label col-md-2" for="Email">Association Email</label>
-        <div class="col-md-10">
-            <input ng-model="vm.assc.email" class="form-control text-box single-line" id="Email" type="text">
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Country">Country</label>
+            <div class="col-md-10">
+                <input ng-model="vm.assc.country" ng-required="true" class="form-control text-box single-line" id="Country" type="text">
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label class="control-label col-md-2" for="Telephone">Telephone</label>
-        <div class="col-md-10">
-            <input ng-model="vm.assc.telephone" class="form-control text-box single-line" id="Telephone" type="text">
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Email">Association Email</label>
+            <div class="col-md-10">
+                <input ng-model="vm.assc.email" ng-required="true" class="form-control text-box single-line" id="Email" type="text">
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label class="control-label col-md-2" for="Password">Set Password</label>
-        <div class="col-md-10">
-            <input ng-model="vm.assc.password" class="form-control" id="Password" type="password">
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Telephone">Telephone</label>
+            <div class="col-md-10">
+                <input ng-model="vm.assc.telephone" ng-required="true" class="form-control text-box single-line" id="Telephone" type="text">
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label class="control-label col-md-2" for="ConfirmPassword">Confirm password</label>
-        <div class="col-md-10">
-            <input ng-model="vm.assc.confirmpassword" class="form-control" id="ConfirmPassword" type="password">
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Name">Payment type</label>
+            <div class="col-md-10">
+                <select ng-model="vm.assc.paymentType" class="form-control text-box single-line">
+                    <option>Monthly</option>
+                    <option>Yearly</option>
+                </select>
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" ng-click="vm.saveAssociation()" value="Save" class="btn btn-primary">
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" ng-click="vm.saveAssociation()" value="Save" class="btn btn-primary">
+            </div>
         </div>
-    </div>
 
-</div>
+    </div>
+</form>

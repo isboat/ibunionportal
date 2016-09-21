@@ -32,11 +32,14 @@ namespace Backend.Logics
             {
                 response.AddRange(associations.Select(association => new AssociationViewModel
                 {
-                    Address = association.Address, Id = association.Id, Name = association.Name
+                    Address = association.Address,
+                    Id = association.Id,
+                    Name = association.Name,
+                    Telephone = association.Telephone
                 }));
             }
 
-            return new List<AssociationViewModel> {new AssociationViewModel{Name = "Association Name", Address = "Association Address", Telephone = "123456789"}};
+            return response;
         }
 
         public AssociationViewModel GetAssociation(int id)
@@ -44,13 +47,7 @@ namespace Backend.Logics
             var assoc = associationRepository.GetAssociation(id);
             if (assoc == null)
             {
-                return new AssociationViewModel
-                {
-                    Name = "Association Name",
-                    Address = "Association Address",
-                    Telephone = "123456789",
-                    PaymentType = "Monthly"
-                };
+                return null;
             }
 
             var subscriptions = this.subscriptionLogic.GetSubscriptions(id);
@@ -60,17 +57,30 @@ namespace Backend.Logics
                     Address = assoc.Address,
                     Id = assoc.Id,
                     Name = assoc.Name,
-                    IsActive = subscriptions.Any(x => x.IsActive)
+                    IsActive = subscriptions.Any(x => x.IsActive),
+                    PaymentType = assoc.PaymentType
                 };
         }
 
         public BaseResponse SaveAssociation(AssociationViewModel viewModel)
         {
-            var response = new BaseResponse();
+            var rowCount = associationRepository.SaveAssociation(new Association
+            {
+                Address = viewModel.Address,
+                Country = viewModel.Country,
+                Email = viewModel.Email,
+                Id = viewModel.Id,
+                JoinDate = viewModel.JoinDate,
+                Name = viewModel.Name,
+                PaymentType = viewModel.PaymentType,
+                Telephone = viewModel.Telephone
+            });
 
-            var result = associationRepository.SaveAssociation(new Association());
-
-            return response;
+            return new BaseResponse
+            {
+                Success = rowCount == 1,
+                Message = "Saved successfully"
+            };
         }
     }
 }

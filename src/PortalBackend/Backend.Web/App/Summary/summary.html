@@ -5,10 +5,10 @@
         </div>
 
         <div class="panel panel-success" ng-if="vm.demoreqs">
-            <div class="panel-heading">Latest association applications</div>
+            <div class="panel-heading">Latest demo requests</div>
             <div class="panel-body">
                 <ul>
-                    <li ng-repeat="demo in vm.demoreqs"><a href="{{demo.Id}}">{{demo.AsscName}}, {{demo.Telephone}}</a></li>
+                    <li ng-repeat="demo in vm.demoreqs"><a ui-sref="demos.view({id: demo.Id})">{{demo.AsscName}}, {{demo.Telephone}}</a></li>
                 </ul>
             </div>
         </div>

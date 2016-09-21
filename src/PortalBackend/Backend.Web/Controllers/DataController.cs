@@ -38,7 +38,7 @@ namespace Backend.Web.Controllers
         [HttpPost]
         public BaseResponse SaveAssociation(AssociationViewModel data)
         {
-            return data == null ? new BaseResponse() : this.demoLogic.SaveDemo(data);
+            return data == null ? new BaseResponse() : this.associationLogic.SaveAssociation(data);
         }
 
         [HttpPost]

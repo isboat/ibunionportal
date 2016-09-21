@@ -112,26 +112,24 @@ namespace Portal.DataAccess.Repositories
             this.logProvider.Info("AssociationRepository, SaveAssociation id=" + (association.Id > 0 ? association.Id.ToString() : "no id (adding assoc)"));
             try
             {
-                var query = "";
+                string query;
 
                 if (association.Id > 0)
                 {
                     query = string.Format(
                         "update associations set name = '{0}', joined_date = '{1}', address = '{2}', telephone = '{3}', country = '{4}', " +
-                        "password = '{5}', paymenttype = '{6}', email = {7} " +
-                        "where idass = {11};",
-                        association.Name, association.JoinDate, association.Address, association.Telephone, association.Country, association.Password,
-                        association.PaymentType, association.Email
-                        demo.Schedule ? 1 : 0, demo.Completed ? 1 : 0, demo.ScheduleDate, demo.CompletionDate, demo.Id);
+                        " paymenttype = '{5}', email = {6} " + "where idass = {7};",
+                        association.Name, association.JoinDate, association.Address, association.Telephone,
+                        association.Country, association.PaymentType, association.Email, association.Id);
                 }
                 else
                 {
                     query = string.Format(
-                        "insert into demorequest(asscname, firstname, lastname, telephone, asscaddr, country, email, scheduled, completed) values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', 0, 0)",
-                        demo.AsscName, demo.Firstname, demo.Lastname, demo.Telephone, demo.AsscAddr, demo.AsscCountry, demo.Email);
+                        "insert into associations(name, joined_date, address, telephone, country, paymenttype, email) values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}')",
+                        association.Name, association.JoinDate, association.Address, association.Telephone, association.Country, association.PaymentType, association.Email);
                 }
 
-                using (var connection = new MySqlConnection(this.ConString))
+                using (var connection = new MySqlConnection(ConString))
                 {
                     using (var cmd = new MySqlCommand(query, connection))
                     {
@@ -144,7 +142,7 @@ namespace Portal.DataAccess.Repositories
             }
             catch (Exception ex)
             {
-                this.logProvider.Error("AssociationRepository, SaveAssociation id=" + (association.Id > 0 ? association.Id.ToString() : "no id (adding assoc)"), ex);
+                logProvider.Error("AssociationRepository, SaveAssociation id=" + (association.Id > 0 ? association.Id.ToString() : "no id (adding assoc)"), ex);
                 throw;
             }
         }

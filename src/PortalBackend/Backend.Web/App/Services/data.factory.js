@@ -41,7 +41,7 @@
         }
 
         function saveAssociation(association) {
-            return postData()(association, { dataUrl: config.appSettings.saveAssociationUrl });
+            return postData(association, { dataUrl: config.appSettings.saveAssociationUrl });
         }
 
         function addPayment(month, year, amount, assocId) {

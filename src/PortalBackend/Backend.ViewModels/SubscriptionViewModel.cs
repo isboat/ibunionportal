@@ -8,7 +8,7 @@ namespace Backend.ViewModels
 {
     public class SubscriptionViewModel
     {
-        public int SubscriptionId { get; set; }
+        public int Id { get; set; }
         public int AssocId { get; set; }
 
         public bool IsActive

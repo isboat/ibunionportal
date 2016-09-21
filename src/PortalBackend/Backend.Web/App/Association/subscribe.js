@@ -10,6 +10,7 @@
         var vm = this;
         vm.title = 'subscribe';
         vm.subscribeAssoc = subscribeAssoc;
+        vm.message = "";
 
         activate();
 
@@ -23,9 +24,9 @@
                     .then(function (response) {
 
                         if (response.data.Success) {
-                            alert("subscribeAssoc success");
+                            vm.message = "Subscription added.";
                         } else {
-                            alert("subscribeAssoc error");
+                            vm.message = response.data.Message;
                         }
 
                     }, function () {

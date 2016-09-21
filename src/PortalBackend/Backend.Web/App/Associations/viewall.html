@@ -10,10 +10,9 @@
             <div class="list-group-item active">
                 <span>List of all associations</span>
             </div>
-            <div ng-repeat="assc in vm.associations" class="list-group-item">
-                <span>{{assc.Name}}, {{assc.Address}}, {{assc.Telephone}}</span> 
-                <a ui-sref="association({id: assc.Id})">view</a>
-            </div>
+            <a ng-repeat="assc in vm.associations" class="list-group-item" ui-sref="association({id: assc.Id})">
+                <span>{{assc.Name}}, {{assc.Address}}, {{assc.Telephone}}</span>
+            </a>
         </div>
     </div>
 </div>

@@ -3,9 +3,9 @@
 
     angular.module('app.associations').controller('edit', edit);
 
-    edit.$inject = ['$location', 'isNew', 'dataService', '$stateParams'];
+    edit.$inject = ['$scope', '$location', 'isNew', 'dataService', '$stateParams'];
 
-    function edit($location, isNew, dataService, $stateParams) {
+    function edit($scope, $location, isNew, dataService, $stateParams) {
         /* jshint validthis:true */
 
         var vm = this;
@@ -14,7 +14,7 @@
         vm.selectedassocid;
         vm.saveAssociation = saveAssociation;
         vm.demoreqs = [];
-        
+        vm.message = '';
         activate();
 
         function activate() {
@@ -55,7 +55,20 @@
         }
 
         function saveAssociation() {
-            
+            console.log(vm.assc);
+
+            if (!$scope.editAsscForm.$invalid) {
+
+                dataService.saveAssociation(vm.assc)
+                    .then(function(response) {
+                            if (response && response.data && response.data.Success) {
+                                vm.message = response.data.Message;
+                            }
+                        },
+                        function(response) {
+                            alert(response);
+                        });
+            }
         }
     }
 })();
