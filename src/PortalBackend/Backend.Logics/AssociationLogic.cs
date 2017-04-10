@@ -54,8 +54,12 @@ namespace Backend.Logics
 
             return new AssociationViewModel
                 {
-                    Address = assoc.Address,
                     Id = assoc.Id,
+                    Address = assoc.Address,
+                    Country = assoc.Country,
+                    Telephone = assoc.Telephone,
+                    Email = assoc.Email,
+                    JoinDate = assoc.JoinDate,
                     Name = assoc.Name,
                     IsActive = subscriptions.Any(x => x.IsActive),
                     PaymentType = assoc.PaymentType

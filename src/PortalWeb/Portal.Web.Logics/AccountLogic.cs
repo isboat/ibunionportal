@@ -225,6 +225,16 @@ namespace Portal.Web.Logics
         {
             var months = new List<MonthViewModel>();
 
+            var lastYear = DateTime.Now.AddYears(-1);
+            for (var i = 1; i <= 12; i++)
+            {
+                months.Add(new MonthViewModel
+                {
+                    Year = lastYear.Year,
+                    Month = new DateTime(lastYear.Year, i, 1).ToString("MMM")
+                });
+            }
+
             var cur = DateTime.Now;
 
             for (int i = 1; i <= cur.Month; i++)

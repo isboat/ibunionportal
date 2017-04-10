@@ -118,7 +118,7 @@ namespace Portal.DataAccess.Repositories
                 {
                     query = string.Format(
                         "update associations set name = '{0}', joined_date = '{1}', address = '{2}', telephone = '{3}', country = '{4}', " +
-                        " paymenttype = '{5}', email = {6} " + "where idass = {7};",
+                        " paymenttype = '{5}', email = '{6}' " + "where idass = {7};",
                         association.Name, association.JoinDate, association.Address, association.Telephone,
                         association.Country, association.PaymentType, association.Email, association.Id);
                 }

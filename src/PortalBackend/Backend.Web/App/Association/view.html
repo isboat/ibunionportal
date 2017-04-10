@@ -1,5 +1,8 @@
 ﻿<div class="panel panel-info">
-    <div class="panel-heading">Association details</div>
+    <div class="panel-heading">
+        <span>Association details</span>
+        <button class="btn btn-info" ui-sref="associations.edit({id: vm.association.Id})">Edit</button>
+    </div>
     <div class="panel-body">
         <div class="container-fluid">
             <div class="row">
@@ -9,6 +12,8 @@
                     <div>{{vm.association.Country}}</div>
                     <br />
                     <div>{{vm.association.Telephone}}</div>
+                    <div>{{vm.association.Email}}</div>
+                    <div>Joined date: {{vm.association.JoinDate}}</div>
                     <br />
                     <div>Payment type: {{vm.association.PaymentType}}</div>
                 </div>
