@@ -14,5 +14,7 @@ namespace Backend.Interfaces
         AssociationViewModel GetAssociation(int id);
 
         BaseResponse SaveAssociation(AssociationViewModel viewModel);
+
+        void CreateAdministrator(CreateSuperAdminRequest request);
     }
 }

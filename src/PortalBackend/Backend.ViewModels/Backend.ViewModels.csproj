@@ -77,6 +77,7 @@
     <Compile Include="Authentication\LoginRequest.cs" />
     <Compile Include="BaseRequest.cs" />
     <Compile Include="BaseResponse.cs" />
+    <Compile Include="CreateSuperAdminRequest.cs" />
     <Compile Include="Demo\DemoRequestViewModel.cs" />
     <Compile Include="PaymentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
